@@ -62,13 +62,23 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
               Row(
                 children: [
                   // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
-                  Text("🏏 "),
                   Text(PlayerData?["name"]),
                   PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
                 ],
               ),
-              PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
-            ])
+              Row(
+                children: [
+                  PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
+                  Text(" 🏏"),
+                ],
+              )
+            ]),
+            Column(
+              children: [
+                Text("Overs"),
+                Text("0"),
+              ],
+            )
           ],
         ));
   }
