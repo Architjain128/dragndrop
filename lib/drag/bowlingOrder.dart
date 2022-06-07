@@ -35,8 +35,6 @@ List<String> todos = [
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
-
-    print(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]);
     return Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
@@ -53,7 +51,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
                 backgroundColor: Colors.greenAccent[100],
                 radius: 30,
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage("https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"), //NetworkImage
+                  backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
                   radius: 25,
                 ), //CircleAvatar
               ), //CircleAvatar
