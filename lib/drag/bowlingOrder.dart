@@ -61,7 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
             Column(children: [
               Text(PlayerData?["name"]),
               Text(PlayerData?["nationality"]),
-              PlayerData?["additional_skill"]?Text(PlayerData?["additional_skill"]):,
+              PlayerData?["additional_skill"] ? Text(PlayerData?["additional_skill"]) : Text(""),
               // Text(PlayerData?["bowling"]["style"]),
             ])
           ],
