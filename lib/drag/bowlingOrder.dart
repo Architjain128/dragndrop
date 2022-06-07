@@ -6,7 +6,7 @@ import 'dart:ui';
 
 class BowlingOrderPage extends StatefulWidget {
   String? teamName;
-  List<Map<String, Object?>>? allPlayers;
+  List<Object>? allPlayers;
   BowlingOrderPage({Key? key, this.teamName, this.allPlayers}) : super(key: key);
 
   @override
@@ -61,7 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   // }
   Widget _allPlayersComponenet() {
     List<Widget> data = [];
-    List<Map<String, Object?>>? players = [];
+    List<Object>? players = [];
     if (widget.allPlayers != null) {
       players = widget.allPlayers;
     }
