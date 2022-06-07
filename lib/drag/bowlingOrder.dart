@@ -42,13 +42,13 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           children: <Widget>[
             CircleAvatar(
               backgroundColor: Colors.green,
-              radius: 55,
+              radius: 40,
               child: CircleAvatar(
                 backgroundColor: Colors.greenAccent[100],
-                radius: 110,
+                radius: 35,
                 child: CircleAvatar(
                   backgroundImage: NetworkImage("https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"), //NetworkImage
-                  radius: 50,
+                  radius: 30,
                 ), //CircleAvatar
               ), //CircleAvatar
             ),
