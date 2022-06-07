@@ -47,12 +47,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   //   }
   // }
   Widget _allPlayersComponenet() {
-    List<Widget> data = [];
-    // print("Check");
-    // for (var v in widget.allPlayers ?? []) {
-    //   print(v["name"]);
-    // }
-
+    List data = [];
     if (widget.allPlayers != null) {
       widget.allPlayers?.map((e) => (data.add(_DragablePlayer(e))));
     } else {
@@ -63,11 +58,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.15,
         child: Container(
-            decoration: new BoxDecoration(color: Colors.cyanAccent),
+            decoration: BoxDecoration(color: Colors.cyanAccent),
             child: new ListView(scrollDirection: Axis.horizontal, children: data
                 // <Widget>[
                 // _DragablePlayer("archit")
-                // widget.allPlayers!=null ? widget.allPlayers.map((e) => _DragablePlayer(e.name))??_DragablePlayer("NAM")
+                // widget.allPlayers?.map((e) => _DragablePlayer(e)).toList()
                 // _listAllPlayers()
                 // ]
                 )));
@@ -77,9 +72,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget build(BuildContext context) {
     return Container(
         child: Stack(children: <Widget>[
-      new ListView(
-        children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
-      ),
+      // new ListView(
+      //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
+      // ),
       _allPlayersComponenet(),
     ]));
   }
