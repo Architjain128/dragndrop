@@ -39,6 +39,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Container(
         // height: 100,
         margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
           borderRadius: BorderRadius.circular(12),
