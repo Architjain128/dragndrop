@@ -36,27 +36,35 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
     print(PlayerData?["name"]);
-    return Container(height: 100, child: Text(PlayerData?['name']));
+    return Container(
+        height: 100,
+        child: Row(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundColor: Colors.green,
+              radius: 55,
+              child: CircleAvatar(
+                backgroundColor: Colors.greenAccent[100],
+                radius: 110,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage("https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"), //NetworkImage
+                  radius: 50,
+                ), //CircleAvatar
+              ), //CircleAvatar
+            ),
+            Column(children: [
+              Text(PlayerData?["name"]),
+            ])
+          ],
+        ));
   }
 
-  // Widget _listAllPlayers(){
-  //   if(widget.allPlayers!=null){
-  //     return widget.allPlayers.map((e) => new _DragablePlayer(e.name));
-  //   }
-  //   else{
-  //     return _DragablePlayer("NAM");
-  //   }
-  // }
   Widget _allPlayersComponenet() {
     List<Widget> data = <Widget>[];
     if (widget.allPlayers != null) {
       for (var p in widget.allPlayers ?? []) {
-        print(p);
         data.add(_DragablePlayer(p));
       }
-      // widget.allPlayers?.map((e) => ());
-      print(data.length);
-      print(widget.allPlayers?.length);
     } else {
       data.add(Container(child: Text("none")));
     }
