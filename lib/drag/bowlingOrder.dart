@@ -17,7 +17,6 @@ class BowlingOrderPage extends StatefulWidget {
   _BowlingOrderPageState createState() => _BowlingOrderPageState();
 }
 
-
 List<String> todos = [
   "a",
   "b",
@@ -38,11 +37,9 @@ List<String> todos = [
 ];
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
-  
   List<DragAndDropList> _contents = <DragAndDropList>[];
 
-  _onItemReorder(
-      int oldItemIndex, int oldListIndex, int newItemIndex, int newListIndex) {
+  _onItemReorder(int oldItemIndex, int oldListIndex, int newItemIndex, int newListIndex) {
     setState(() {
       var movedItem = _contents[oldListIndex].children.removeAt(oldItemIndex);
       _contents[newListIndex].children.insert(newItemIndex, movedItem);
@@ -76,7 +73,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     });
   }
 
-  Widget _OversToBeBowled(){
+  Widget _OversToBeBowled() {
     return Flexible(
       flex: TOTAL_OVERS,
       child: DragAndDropLists(
@@ -93,7 +90,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           ),
         ),
       ),
-    )
+    );
   }
 
   Widget _DragablePlayer(Object data) {
@@ -146,7 +143,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
             )
           ],
         ));
-
   }
 
   Widget _allPlayersComponenet() {
