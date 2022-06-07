@@ -94,7 +94,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   }
 
   Widget _DragablePlayerWrapper(Object data) {
-    return Draggable<DragAndDropItem>(
+    return Draggable(
       feedback: Icon(Icons.photo),
       child: _DragablePlayer(data),
       data: DragAndDropItem(child: Text('New default item')),
