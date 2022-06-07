@@ -48,8 +48,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   //   }
   // }
   Widget _allPlayersComponenet() {
-    List<Widget> data = [];
+    List<Widget> data = <Widget>[];
     if (widget.allPlayers != null) {
+      for (var p in widget.allPlayers ?? []) {
+        print(p);
+      }
       widget.allPlayers?.map((e) => (data.add(_DragablePlayer(e))));
       print(data.length);
       print(widget.allPlayers?.length);
