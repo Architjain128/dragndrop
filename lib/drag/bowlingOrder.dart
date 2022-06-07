@@ -93,113 +93,71 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     );
   }
 
+  Widget _DragablePlayerWrapper(Object data) {
+    return Draggable<DragAndDropItem>(
+      feedback: Icon(Icons.photo),
+      child: _DragablePlayer(data),
+      data: DragAndDropItem(child: Text('New default item')),
+    );
+  }
+
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
-    return Draggable<DragAndDropItem>(
-        data: DragAndDropItem(child: Text('New default item')),
-        feedback: Container(
-            margin: const EdgeInsets.all(10.0),
-            padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
-              borderRadius: BorderRadius.circular(12),
+    return Container(
+        margin: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundColor: Colors.green,
+              radius: 35,
+              child: CircleAvatar(
+                backgroundColor: Colors.greenAccent[100],
+                radius: 30,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
+                  radius: 25,
+                ), //CircleAvatar
+              ), //CircleAvatar
             ),
-            child: Row(
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundColor: Colors.green,
-                  radius: 35,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.greenAccent[100],
-                    radius: 30,
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
-                      radius: 25,
-                    ), //CircleAvatar
-                  ), //CircleAvatar
-                ),
-                Column(children: [
-                  Row(
-                    children: [
-                      // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
-                      Text(PlayerData?["name"]),
-                      PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
-                      Text(" 🏏"),
-                    ],
-                  )
-                ]),
-                VerticalDivider(
-                  color: Colors.black,
-                  thickness: 1,
-                ),
-                Column(
-                  children: [
-                    Text("Overs"),
-                    Text("0"),
-                  ],
-                )
-              ],
-            )),
-        child: Container(
-            margin: const EdgeInsets.all(10.0),
-            padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
-              borderRadius: BorderRadius.circular(12),
+            Column(children: [
+              Row(
+                children: [
+                  // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
+                  Text(PlayerData?["name"]),
+                  PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
+                ],
+              ),
+              Row(
+                children: [
+                  PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
+                  Text(" 🏏"),
+                ],
+              )
+            ]),
+            VerticalDivider(
+              color: Colors.black,
+              thickness: 1,
             ),
-            child: Row(
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundColor: Colors.green,
-                  radius: 35,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.greenAccent[100],
-                    radius: 30,
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
-                      radius: 25,
-                    ), //CircleAvatar
-                  ), //CircleAvatar
-                ),
-                Column(children: [
-                  Row(
-                    children: [
-                      // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
-                      Text(PlayerData?["name"]),
-                      PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
-                      Text(" 🏏"),
-                    ],
-                  )
-                ]),
-                VerticalDivider(
-                  color: Colors.black,
-                  thickness: 1,
-                ),
-                Column(
-                  children: [
-                    Text("Overs"),
-                    Text("0"),
-                  ],
-                )
+            Column(
+              children: [
+                Text("Overs"),
+                Text("0"),
               ],
-            )));
+            )
+          ],
+        ));
   }
 
   Widget _allPlayersComponenet() {
     List<Widget> data = <Widget>[];
     if (widget.allPlayers != null) {
       for (var p in widget.allPlayers ?? []) {
-        data.add(_DragablePlayer(p));
+        data.add(_DragablePlayerWrapper(p));
       }
     } else {
       data.add(Container(child: Text("none")));
