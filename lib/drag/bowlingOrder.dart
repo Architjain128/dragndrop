@@ -35,7 +35,7 @@ List<String> todos = [
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
-    return Container(child: Text(PlayerData?['name']));
+    return Container(height: 100, child: Text(PlayerData?['name']));
   }
 
   // Widget _listAllPlayers(){
