@@ -38,7 +38,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     print(PlayerData?["name"]);
     return Container(
         // height: 100,
-        decoration: BoxDecoration(border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1)),
+        decoration: BoxDecoration(
+          border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Row(
           children: <Widget>[
             CircleAvatar(
