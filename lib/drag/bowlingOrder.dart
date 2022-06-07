@@ -75,8 +75,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
             ]),
             VerticalDivider(
               color: Colors.black,
-              thickness: 2,
-            )
+              thickness: 1,
+            ),
             Column(
               children: [
                 Text("Overs"),
