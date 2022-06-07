@@ -33,8 +33,8 @@ List<String> todos = [
 ];
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
-  Widget _DragablePlayer(String name) {
-    return Container(child: Text(name));
+  Widget _DragablePlayer(Object data) {
+    return Container(child: Text(data["name"]));
   }
 
   // Widget _listAllPlayers(){
@@ -47,21 +47,16 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   // }
   Widget _allPlayersComponenet() {
     List<Widget> data = [];
-    print("Check");
-    for (var v in widget.allPlayers ?? []) {
-      print(v["name"]);
+    // print("Check");
+    // for (var v in widget.allPlayers ?? []) {
+    //   print(v["name"]);
+    // }
+
+    if (widget.allPlayers != null) {
+      widget.allPlayers?.map((e) => (data.add(_DragablePlayer(e))));
+    } else {
+      data.add(_DragablePlayer("None"));
     }
-    //below is the solution
-    // v.asMap().forEach((i, value) {
-    //   print('index=$i, value=$value');
-    // }
-    // }
-    // if(widget.allPlayers!=null){
-    //   widget.allPlayers.map((e)=>(data.add(_DragablePlayer("1"))));
-    // }
-    // else{
-    //   data.add(_DragablePlayer("None"));
-    // }
     return Positioned(
         bottom: 3.0,
         width: MediaQuery.of(context).size.width,
