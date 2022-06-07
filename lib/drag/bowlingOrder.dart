@@ -53,7 +53,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     }
     print("Check");
     assert(players != null);
-    players != null ? players.map((e) => (print("hi " + json.encode(e)))) : print("oops");
+    players != null ? players.map((e) => (print("hi "))) : print("oops");
     // for(var v in widget.allPlayers) {
     // print(v);
     //below is the solution
