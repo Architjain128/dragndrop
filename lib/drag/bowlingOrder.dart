@@ -6,7 +6,7 @@ import 'dart:ui';
 
 class BowlingOrderPage extends StatefulWidget {
   String? teamName;
-  List<Object>? allPlayers;
+  List<Object>? allPlayers = [];
   BowlingOrderPage({Key? key, this.teamName, this.allPlayers}) : super(key: key);
 
   @override
@@ -14,20 +14,6 @@ class BowlingOrderPage extends StatefulWidget {
 }
 
 List<String> todos = [
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
   "a",
   "b",
   "a",
@@ -66,8 +52,15 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       players = widget.allPlayers;
     }
     print("Check");
+    assert(players != null);
     players != null ? players.map((e) => (print("hi " + json.encode(e)))) : print("oops");
-
+    // for(var v in widget.allPlayers) {
+    // print(v);
+    //below is the solution
+    // v.asMap().forEach((i, value) {
+    //   print('index=$i, value=$value');
+    // }
+    // }
     // if(widget.allPlayers!=null){
     //   widget.allPlayers.map((e)=>(data.add(_DragablePlayer("1"))));
     // }
