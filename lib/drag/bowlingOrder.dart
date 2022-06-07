@@ -75,7 +75,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _OversToBeBowled() {
     return Flexible(
-      flex: TOTAL_OVERS,
+      flex: 10,
       child: DragAndDropLists(
         children: _contents,
         onItemReorder: _onItemReorder,
