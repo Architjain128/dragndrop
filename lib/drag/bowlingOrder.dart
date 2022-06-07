@@ -94,7 +94,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     } else {
       data.add(Container(child: Text("none")));
     }
-    return Positioned(bottom: 0, child: Container(width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height * 0.15, decoration: BoxDecoration(border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1)), child: ListView(scrollDirection: Axis.horizontal, children: data)));
+    return Positioned(
+        bottom: 0,
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.15,
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(width: 1.0, color: Colors.black),
+              bottom: BorderSide(width: 1.0, color: Colors.black),
+            )),
+            child: ListView(scrollDirection: Axis.horizontal, children: data)));
   }
 
   @override
