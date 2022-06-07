@@ -52,10 +52,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       players = widget.allPlayers;
     }
     print("Check");
-    assert(players != null);
     players != null ? players.map((e) => (print("hi "))) : print("oops");
-    // for(var v in widget.allPlayers) {
-    // print(v);
+    for (var v in widget.allPlayers ?? []) {
+      print(v);
+    }
     //below is the solution
     // v.asMap().forEach((i, value) {
     //   print('index=$i, value=$value');
