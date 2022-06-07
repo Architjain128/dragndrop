@@ -54,19 +54,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     } else {
       data.add(Container(child: Text("none")));
     }
-    return Positioned(
-        bottom: 3.0,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.15,
-        child: Container(
-            decoration: BoxDecoration(color: Colors.cyanAccent),
-            child: new ListView(scrollDirection: Axis.horizontal, children: data
-                // <Widget>[
-                // _DragablePlayer("archit")
-                // widget.allPlayers?.map((e) => _DragablePlayer(e)).toList()
-                // _listAllPlayers()
-                // ]
-                )));
+    return Positioned(bottom: 0, child: Container(width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height * 0.15, decoration: BoxDecoration(color: Colors.cyanAccent), child: ListView(scrollDirection: Axis.horizontal, children: data)));
   }
 
   @override
