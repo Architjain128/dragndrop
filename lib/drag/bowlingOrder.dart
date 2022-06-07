@@ -157,7 +157,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     List<Widget> data = <Widget>[];
     if (widget.allPlayers != null) {
       for (var p in widget.allPlayers ?? []) {
-        data.add(_DragablePlayerWrapper(p));
+        data.add(_DragablePlayer(p));
       }
     } else {
       data.add(Container(child: Text("none")));
