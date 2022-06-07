@@ -61,7 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
             Column(children: [
               Row(
                 children: [
-                  PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
+                  PlayerData?["nationality"] == "Overseas" ? Text("✈️ ") : Text(""),
                   Text(PlayerData?["name"]),
                   // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
                 ],
