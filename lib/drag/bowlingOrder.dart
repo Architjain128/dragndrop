@@ -96,9 +96,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
     return Draggable<DragAndDropItem>(
-        feedback: Text('New default item feedback'),
+        child: Text('New default item feedback'),
         data: DragAndDropItem(child: Text('New default item')),
-        child: Container(
+        feedback: Container(
             margin: const EdgeInsets.all(10.0),
             padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
             decoration: BoxDecoration(
