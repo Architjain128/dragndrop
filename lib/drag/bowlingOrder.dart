@@ -66,7 +66,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
                   PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
                 ],
               ),
-              PlayerData?["bowling"] != null || PlayerData?["bowling"]?["style"] != null ? Text(PlayerData?["bowling"]["style"]) : Text(" "),
+              PlayerData?["bowling"] != null || json.decode(json.encode(PlayerData?["bowling"]))?["style"] != null ? Text(json.decode(json.encode(PlayerData?["bowling"]))?["style"]) : Text(" "),
             ])
           ],
         ));
