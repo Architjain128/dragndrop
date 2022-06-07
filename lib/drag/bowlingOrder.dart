@@ -52,9 +52,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       players = widget.allPlayers;
     }
     print("Check");
-    players != null ? players.map((e) => (print("hi "))) : print("oops");
     for (var v in widget.allPlayers ?? []) {
-      print(v);
+      print(v.name);
     }
     //below is the solution
     // v.asMap().forEach((i, value) {
