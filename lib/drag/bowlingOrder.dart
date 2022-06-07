@@ -37,7 +37,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
     print(PlayerData?["name"]);
     return Container(
-        height: 100,
+        // height: 100,
+        decoration: BoxDecoration(border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1)),
         child: Row(
           children: <Widget>[
             CircleAvatar(
