@@ -36,7 +36,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
 
-    print(PlayerData?["bowling"]);
+    print(PlayerData?["sport_specific_keys"]?["bowling"]);
     return Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
