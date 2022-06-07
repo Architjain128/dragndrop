@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const TOTAL_OVERS = 20;
 const NAME = "Archit Jain";
 const TEAM1_SELECTED_PLAYERS = [
   {
