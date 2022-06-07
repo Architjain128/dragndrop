@@ -36,7 +36,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
 
-    print(PlayerData?["sport_specific_keys"]?["bowling"]);
+    print(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]);
     return Container(
         margin: const EdgeInsets.all(10.0),
         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
@@ -66,7 +66,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
                   PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
                 ],
               ),
-              PlayerData?["bowling"] != null || json.decode(json.encode(PlayerData?["bowling"]))?["style"] != null ? Text(json.decode(json.encode(PlayerData?["bowling"]))?["style"]) : Text(" "),
+              PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(json.decode(json.encode(PlayerData?["bowling"]))?["style"]) : Text(" "),
             ])
           ],
         ));
