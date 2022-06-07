@@ -65,7 +65,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     if (widget.allPlayers != null) {
       players = widget.allPlayers;
     }
-    print(json.decode(json.encode(players)));
+    players != null ? players.map((e) => (print(e))) : print("oops");
 
     // if(widget.allPlayers!=null){
     //   widget.allPlayers.map((e)=>(data.add(_DragablePlayer("1"))));
