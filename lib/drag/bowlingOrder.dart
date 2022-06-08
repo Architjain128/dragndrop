@@ -77,7 +77,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       Container(
         height: 30,
         width: 35,
-        alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(15),
