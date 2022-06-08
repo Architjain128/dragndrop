@@ -60,7 +60,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Card(
         child: Stack(children: [
       Text(overNumber.toString()),
-      VerticalDivider(),
+      VerticalDivider(width: 2.0, color: Colors.black),
       ListTile(
         onTap: () {},
         title: Text("Select Bowler"),
