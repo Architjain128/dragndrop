@@ -68,24 +68,22 @@ class PandoraBox extends Model {
         _oversCompleted2[id] = 1;
       }
     }
+    notifyListeners();
   }
 
   int? getOversCompletedById(int id, String teamName) {
+    int? value = 0;
     if (_teamName1 == teamName) {
       if (_oversCompleted1.containsKey(id)) {
-        return _oversCompleted1[id];
-      } else {
-        return 0;
+        value = _oversCompleted1[id];
       }
     }
     if (_teamName2 == teamName) {
       if (_oversCompleted2.containsKey(id)) {
-        return _oversCompleted2[id];
-      } else {
-        return 0;
+        value = _oversCompleted2[id];
       }
     }
-    return 0;
+    return value;
   }
 
   Map<String, dynamic>? fromObject(Object data) {
