@@ -45,6 +45,8 @@ class PandoraBox extends Model {
   List<Object> _teamPlayers2 = TEAM2_SELECTED_PLAYERS;
   Map<int, int> _oversCompleted1 = {};
   Map<int, int> _oversCompleted2 = {};
+  List<int> _bowlingOrder1 = List<int>.filled(TOTAL_OVERS, -1, growable: false);
+  List<int> _bowlingOrder2 = List<int>.filled(TOTAL_OVERS, -1, growable: false);
 
   int get totalOvers => _totalOvers;
   String get teamName1 => _teamName1;
@@ -52,6 +54,24 @@ class PandoraBox extends Model {
   Map<String, dynamic> get emptyPlayer => _emptyPlayer;
   List<Object> get teamPlayers1 => _teamPlayers1;
   List<Object> get teamPlayers2 => _teamPlayers2;
+
+  List<int>? bowlingOrder(String teamName) {
+    if (teamName1 == teamName) {
+      return _bowlingOrder1;
+    } else {
+      return _bowlingOrder2;
+    }
+  }
+
+  void updateBowlingOrder(int overNumbers, int id, String teamName) {
+    if (teamName == _teamName1) {
+      _bowlingOrder1[overNumbers - 1] = id;
+    }
+    if (teamName == _teamName2) {
+      _bowlingOrder2[overNumbers - 1] = id;
+    }
+    notifyListeners();
+  }
 
   void oversCompleted(int id, String teamName, int value) {
     if (_teamName1 == teamName) {

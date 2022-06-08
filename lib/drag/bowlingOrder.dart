@@ -22,20 +22,14 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   int zz = 0;
   String teamName = "";
   List<Object>? allPlayers = [];
-  List<int> bowlingList = [];
+  List<int>? bowlingList = [];
   // Map<int, int> oversCompleted = {};
 
   @override
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
-    bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
-
-    // for (var p in widget.model.teamPlayers1) {
-    //   print(p);
-    //   // p["oversCompleted"]=0;
-    //   print(p);
-    // }
+    bowlingList = widget.model.bowlingOrder(teamName);
 
     return Stack(
       children: [
@@ -127,7 +121,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       if (data != null) {
         print(data);
         idx = data;
-        bowlingList[overNumber - 1] = data;
+        widget.model.updateBowlingOrder(overNumber, data, teamName);
+        // bowlingList?[overNumber - 1] = data;
         widget.model.oversCompleted(data, teamName, 1);
         // print(oversCompleted[data]);
         // oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
@@ -139,7 +134,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   List<Widget> _listOfAllOvers() {
     List<Widget> data = [];
     int overNumber = 1;
-    for (var idx in bowlingList) {
+    for (var idx in bowlingList ?? []) {
       data.add(_oversBowledWrapper(overNumber, idx));
       overNumber += 1;
     }
