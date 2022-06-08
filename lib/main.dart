@@ -7,12 +7,12 @@ import 'dart:core';
 import '../data.dart';
 
 void main() => runApp(MyApp(
-    // model: PandoraBox(),
+      model: PandoraBox(),
     ));
 
 class MyApp extends StatelessWidget {
-  // final PandoraBox model;
-  // const MyApp({Key? key, required this.model}) : super(key: key);
+  final PandoraBox model;
+  const MyApp({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
