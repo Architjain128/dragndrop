@@ -11,6 +11,7 @@ class BowlingOrderPage extends StatefulWidget {
   int? teamNumber;
   String? teamName;
   List<Object>? allPlayers = [];
+
   BowlingOrderPage({Key? key, required this.model, this.teamNumber}) : super(key: key);
 
   @override
@@ -21,11 +22,19 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   int zz = 0;
   String teamName = "";
   List<Object>? allPlayers = [];
+  List<int> bowlingList = [];
 
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
-      child: Text('$player'),
+      child: Text(player["id"].toString()),
+    );
+  }
+
+  Widget _oversBowledEmpty() {
+    // Map<String, dynamic> player = json.decode(json.encode(data));
+    return Container(
+      child: Text('Empty'),
     );
   }
 
@@ -52,9 +61,15 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     });
   }
 
-  // List<Widget> _listOfAllOvers{
-
-  // }
+  List<Widget> _listOfAllOvers() {
+    List<Widget> data = [];
+    for (var idx in bowlingList) {
+      if (idx == -1)
+        data.add(_oversBowledEmpty());
+      else
+        data.add(_oversBowled(widget.model.getPlayerbyId(idx, teamName)));
+    }
+  }
 
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
@@ -194,14 +209,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
+    bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
     return Stack(
       children: [
         SafeArea(
           child: Column(
             children: [
               Expanded(
-                child: _OversToBeBowled(),
-              ),
+                  // child: _OversToBeBowled(),
+                  child: Column(
+                children: _listOfAllOvers(),
+              )),
               _allPlayersComponenet(),
             ],
           ),
