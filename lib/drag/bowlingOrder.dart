@@ -35,13 +35,31 @@ List<String> todos = [
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _OversToBeBowled() {
-    return Text("hi");
+    Object acceptedData = EMPTY_PLAYER;
+    Map<String, dynamic> player = json.decode(json.encode(EMPTY_PLAYER));
+    return DragTarget(builder: (
+      BuildContext context,
+      List<dynamic> accepted,
+      List<dynamic> rejected,
+    ) {
+      return Container(
+        color: Colors.cyan,
+        child: Center(
+          child: _DragablePlayer(acceptedData),
+        ),
+      );
+    }, onAccept: (Object data) {
+      setState(() {
+        acceptedData = data;
+      });
+    });
   }
 
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
     return Draggable<Map<String, dynamic>>(data: PlayerData, feedback: Text("feedback"), child: _DragablePlayer(data));
   }
+
   // Draggable<int>(
   //         // Data is the value this Draggable stores.
   //         data: 10,

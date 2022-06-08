@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 
 const TOTAL_OVERS = 20;
 const NAME = "Archit Jain";
+const EMPTY_PLAYER = {
+  "id": -1,
+  "skill_name": " ",
+  "nationality": " ",
+  "additional_skill": " ",
+  "sport_specific_keys": {
+    "additional_skill": " ",
+    "is_captain": 0,
+    "batting": {
+      "style": " "
+    },
+    "bowling": {
+      "style": " "
+    }
+  }
+};
 const TEAM1_SELECTED_PLAYERS = [
   {
     "id": 389,
