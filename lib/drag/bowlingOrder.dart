@@ -35,8 +35,9 @@ List<String> todos = [
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(Object? data) {
+    Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
-      child: Text("hello"),
+      child: Text(player["id"]),
     );
   }
 
