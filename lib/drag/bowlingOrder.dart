@@ -59,7 +59,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     // Map<String, dynamic> player = json.decode(json.encode(data));
     return Card(
         child: Stack(children: [
-      Container(child: Text(overNumber.toString())),
+      Container(padding: EdgeInsets.all(2), child: Text(overNumber.toString())),
       VerticalDivider(width: 2.0, color: Colors.black),
       ListTile(
         onTap: () {},
