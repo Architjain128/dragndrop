@@ -18,6 +18,7 @@ class BowlingOrderPage extends StatefulWidget {
 }
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
+  int zz;
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
@@ -182,7 +183,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    int zz = 1;
+    zz = 1;
     // return Stack(
     //   children: [
     //     SafeArea(
