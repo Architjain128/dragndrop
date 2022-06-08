@@ -186,9 +186,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget build(BuildContext context) {
     return Container(
         child: Stack(children: <Widget>[
-      new ListView(
-        children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
-      ),
+      // new ListView(
+      //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
+      // ),
       _OversToBeBowled(),
       _allPlayersComponenet(),
     ]));
