@@ -34,11 +34,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         SafeArea(
           child: Column(
             children: [
-              Expanded(
-                  // child: _OversToBeBowled(),
-                  child: Column(
+              // child: _OversToBeBowled(),
+              ListView(
+                padding: const EdgeInsets.all(8),
                 children: _listOfAllOvers(),
-              )),
+              ),
               _allPlayersComponenet(),
             ],
           ),
