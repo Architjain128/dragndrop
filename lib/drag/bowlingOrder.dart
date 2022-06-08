@@ -35,10 +35,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           child: Column(
             children: [
               // _OversToBeBowled(),
-              ListView(
+              Expanded(
+                  child: ListView(
                 padding: const EdgeInsets.all(8),
                 children: _listOfAllOvers(),
-              ),
+              )),
               _allPlayersComponenet(),
             ],
           ),
