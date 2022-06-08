@@ -19,6 +19,9 @@ class BowlingOrderPage extends StatefulWidget {
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   int zz = 0;
+  String teamName = "";
+  List<Object>? allPlayers = [];
+
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
@@ -159,10 +162,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   }
 
   Widget _allPlayersComponenet() {
-    print(zz);
     List<Widget> data = <Widget>[];
-    if (widget.allPlayers != null) {
-      for (var p in widget.allPlayers ?? []) {
+    if (allPlayers != null) {
+      for (var p in allPlayers ?? []) {
         data.add(_DragablePlayerWrapper(p));
       }
     } else {
@@ -183,7 +185,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    zz = 1;
+    teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
+    allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
     // return Stack(
     //   children: [
     //     SafeArea(
