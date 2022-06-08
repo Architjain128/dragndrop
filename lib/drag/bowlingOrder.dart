@@ -34,8 +34,14 @@ List<String> todos = [
 ];
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
+  Widget _oversBowled(Object? data) {
+    return Container(
+      child: Text("hello"),
+    );
+  }
+
   Widget _OversToBeBowled() {
-    Object acceptedData = EMPTY_PLAYER;
+    Object? acceptedData = EMPTY_PLAYER;
     Map<String, dynamic> player = json.decode(json.encode(EMPTY_PLAYER));
     print(acceptedData);
     return DragTarget(builder: (
@@ -46,13 +52,15 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       return Container(
         color: Colors.cyan,
         child: Center(
-          child: Text("hi"),
+          child: _oversBowled(acceptedData),
         ),
       );
     }, onAccept: (Object data) {
-      setState(() {
-        acceptedData = data;
-      });
+      if (data != null) {
+        setState(() {
+          acceptedData = data;
+        });
+      }
     });
   }
 
