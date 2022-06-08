@@ -55,9 +55,19 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     );
   }
 
-  Widget _oversBowledEmpty() {
+  Widget _oversBowledEmpty(int overNumber) {
     // Map<String, dynamic> player = json.decode(json.encode(data));
-    return Card(child: ListTile(onTap: () {}, title: Text("Select Bowler"), subtitle: Text("Drag from below listed bowlers"), leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")), trailing: Icon(Icons.sports_cricket_outlined)));
+    return Card(
+        child: ListTile(
+      onTap: () {},
+      title: Text("Select Bowler"),
+      subtitle: Text("Drag from below listed bowlers"),
+      leading: Row(children: <Widget>[
+        Text(overNumber.toString()),
+        CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+      ]),
+      trailing: Icon(Icons.sports_cricket_outlined),
+    ));
   }
 
   Widget _OversToBeBowled() {
@@ -85,11 +95,13 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   List<Widget> _listOfAllOvers() {
     List<Widget> data = [];
+    int overNumber = 1;
     for (var idx in bowlingList) {
       if (idx == -1)
-        data.add(_oversBowledEmpty());
+        data.add(_oversBowledEmpty(overNumber));
       else
         data.add(_oversBowled(widget.model.getPlayerbyId(idx, teamName)));
+      overNumber += 1;
     }
     return data;
   }
