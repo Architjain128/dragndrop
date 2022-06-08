@@ -23,7 +23,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   String teamName = "";
   List<Object>? allPlayers = [];
   List<int> bowlingList = [];
-
+  Map<int, int> oversCompleted = {};
   @override
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
@@ -136,6 +136,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = widget.model.fromObject(data);
+    oversCompleted[PlayerData?["id"]] = 0;
     return Draggable<Object>(
       data: PlayerData?["id"],
       feedback: Container(
@@ -204,7 +205,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
             Column(
               children: [
                 Text("Overs"),
-                Text("0"),
+                Text(oversCompleted[PlayerData?["id"]].toString()),
               ],
             )
           ],
