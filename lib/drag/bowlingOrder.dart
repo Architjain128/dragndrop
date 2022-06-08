@@ -61,6 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         child: Stack(children: [
       Container(
         height: 30,
+        width: 10,
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
           color: Colors.blue,
@@ -70,7 +71,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'hallo',
+              overNumber.toString(),
               style: TextStyle(color: Colors.white),
             ),
           ],
