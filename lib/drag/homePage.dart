@@ -33,8 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(widget.model.teamName1)),
-        // title: Center(child: Text("Bowling Order")),
+        title: Center(child: Text("Bowling Order")),
       ),
       body: Center(
         child: BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
