@@ -123,8 +123,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         print(oversCompleted[data]);
         oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
         print(oversCompleted[data]);
-        // if(data!=null && data && oversCompleted[data]!=null)oversCompleted[data]=oversCompleted[data]+1;
-        // oversCompleted[data]!=null?oversCompleted[data]+=1:oversCompleted[data]=0;
       }
     });
   }
@@ -168,53 +166,54 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayer(Map<String, dynamic>? PlayerData) {
     // Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
     return Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
-        decoration: BoxDecoration(
-          border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: <Widget>[
-            CircleAvatar(
-              backgroundColor: Colors.green,
-              radius: 35,
+      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: <Widget>[
+          CircleAvatar(
+            backgroundColor: Colors.green,
+            radius: 35,
+            child: CircleAvatar(
+              backgroundColor: Colors.greenAccent[100],
+              radius: 30,
               child: CircleAvatar(
-                backgroundColor: Colors.greenAccent[100],
-                radius: 30,
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
-                  radius: 25,
-                ), //CircleAvatar
+                backgroundImage: NetworkImage("https://picsum.photos/200"), //NetworkImage
+                radius: 25,
               ), //CircleAvatar
-            ),
-            Column(children: [
-              Row(
-                children: [
-                  // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
-                  Text(PlayerData?["name"]),
-                  PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
-                ],
-              ),
-              Row(
-                children: [
-                  PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
-                  Text(" 🏏"),
-                ],
-              )
-            ]),
-            VerticalDivider(
-              color: Colors.black,
-              thickness: 1,
-            ),
-            Column(
+            ), //CircleAvatar
+          ),
+          Column(children: [
+            Row(
               children: [
-                Text("Overs"),
-                Text(oversCompleted[PlayerData?["id"]].toString()),
+                // PlayerData?["additional_skill"] != null ? Text(PlayerData?["additional_skill"]) : Text(" "),
+                Text(PlayerData?["name"]),
+                PlayerData?["nationality"] == "Overseas" ? Text(" ✈️") : Text(""),
+              ],
+            ),
+            Row(
+              children: [
+                PlayerData?["sport_specific_keys"] != null || PlayerData?["sport_specific_keys"]?["bowling"] != null || PlayerData?["sport_specific_keys"]?["bowling"]?["style"] != null ? Text(PlayerData?["sport_specific_keys"]?["bowling"]?["style"]) : Text(" "),
+                Text(" 🏏"),
               ],
             )
-          ],
-        ));
+          ]),
+          VerticalDivider(
+            color: Colors.black,
+            thickness: 1,
+          ),
+          Column(
+            children: [
+              Text("Overs"),
+              Text(oversCompleted[PlayerData?["id"]].toString()),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _allPlayersComponenet() {
@@ -226,19 +225,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     } else {
       data.add(Container(child: Text("none")));
     }
-    // return Positioned(
-    //     bottom: 0,
-    //     child:
     return Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.15,
-        decoration: BoxDecoration(
-            border: Border(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.15,
+      decoration: BoxDecoration(
+        border: Border(
           top: BorderSide(width: 1.0, color: Colors.black),
           bottom: BorderSide(width: 1.0, color: Colors.black),
-        )),
-        child: ListView(scrollDirection: Axis.horizontal, children: data)
-        // )
-        );
+        ),
+      ),
+      child: ListView(scrollDirection: Axis.horizontal, children: data),
+      // )
+    );
   }
 }
