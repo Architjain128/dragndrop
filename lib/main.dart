@@ -18,14 +18,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // return ScopedModel<PandoraBox>(
     //   model: model,
-    //   child: 
+    //   child:
     return MaterialApp(
-        title: 'sports',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: MyHomePage(),
+      title: 'sports',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: MyHomePage(),
+      // ),
     );
   }
 }
