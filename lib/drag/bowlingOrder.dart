@@ -50,7 +50,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(int overNumber, int idx) {
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
     return Card(
-        elevation: 5,
+        elevation: 10,
         child: Stack(children: [
           ListTile(
             onTap: () {},
