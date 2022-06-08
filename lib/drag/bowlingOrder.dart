@@ -165,6 +165,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _DragablePlayer(Map<String, dynamic>? PlayerData) {
     // Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
+    PlayerData?["oversCompleted"] = 0;
     return Container(
       margin: const EdgeInsets.all(10.0),
       padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
@@ -208,7 +209,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           Column(
             children: [
               Text("Overs"),
-              Text(oversCompleted[PlayerData?["id"]].toString()),
+              Text(PlayerData?["oversCompleted"].toString()),
+              // Text(oversCompleted[PlayerData?["id"]].toString()),
             ],
           ),
         ],
