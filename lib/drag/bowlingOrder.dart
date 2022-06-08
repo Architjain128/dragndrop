@@ -23,7 +23,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   String teamName = "";
   List<Object>? allPlayers = [];
   List<int> bowlingList = [];
-  Map<int, int> oversCompleted = {};
+  // Map<int, int> oversCompleted = {};
 
   @override
   Widget build(BuildContext context) {
@@ -128,9 +128,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         print(data);
         idx = data;
         bowlingList[overNumber - 1] = data;
-        print(oversCompleted[data]);
-        oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
-        print(oversCompleted[data]);
+        widget.model.oversCompleted(data, teamName, 1);
+        // print(oversCompleted[data]);
+        // oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
+        // print(oversCompleted[data]);
       }
     });
   }
