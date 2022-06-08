@@ -71,7 +71,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           children: <Widget>[
             Text(
               overNumber.toString(),
-              style: TextStyle(color: Colors.white, fontSize: 10),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
