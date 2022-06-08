@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
         // home: MyHomePage(),
         home: ScopedModelDescendant<PandoraBox>(
           builder: (context, child, model) {
-            return MyHomePage();
+            return MyHomePage(
+              model: model,
+            );
           },
         ),
       ),
