@@ -90,28 +90,28 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     ]));
   }
 
-  Widget _OversToBeBowled() {
-    Object? acceptedData = EMPTY_PLAYER;
-    Map<String, dynamic> player = json.decode(json.encode(EMPTY_PLAYER));
-    print(acceptedData);
-    return DragTarget(builder: (
-      BuildContext context,
-      List<dynamic> accepted,
-      List<dynamic> rejected,
-    ) {
-      return Container(
-        color: Colors.cyan,
-        child: Center(
-          child: _oversBowled(acceptedData),
-        ),
-      );
-    }, onAccept: (Object data) {
-      if (data != null) {
-        print(data);
-        acceptedData = data;
-      }
-    });
-  }
+  // Widget _OversToBeBowled() {
+  //   Object? acceptedData = EMPTY_PLAYER;
+  //   Map<String, dynamic> player = json.decode(json.encode(EMPTY_PLAYER));
+  //   print(acceptedData);
+  //   return DragTarget(builder: (
+  //     BuildContext context,
+  //     List<dynamic> accepted,
+  //     List<dynamic> rejected,
+  //   ) {
+  //     return Container(
+  //       color: Colors.cyan,
+  //       child: Center(
+  //         child: _oversBowled(acceptedData),
+  //       ),
+  //     );
+  //   }, onAccept: (Object data) {
+  //     if (data != null) {
+  //       print(data);
+  //       acceptedData = data;
+  //     }
+  //   });
+  // }
 
   List<Widget> _listOfAllOvers() {
     List<Widget> data = [];
