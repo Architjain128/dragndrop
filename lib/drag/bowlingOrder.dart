@@ -37,7 +37,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
-      child: Text(player["id"]),
+      child: Text('$player["id"]'),
     );
   }
 
