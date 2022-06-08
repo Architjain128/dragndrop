@@ -43,6 +43,8 @@ class PandoraBox extends Model {
   Map<String, dynamic> _emptyPlayer = json.decode(json.encode(EMPTY_PLAYER));
   List<Object> _teamPlayers1 = TEAM1_SELECTED_PLAYERS;
   List<Object> _teamPlayers2 = TEAM2_SELECTED_PLAYERS;
+  Map<int, int> _oversCompleted1 = {};
+  Map<int, int> _oversCompleted2 = {};
 
   int get totalOvers => _totalOvers;
   String get teamName1 => _teamName1;
@@ -50,6 +52,41 @@ class PandoraBox extends Model {
   Map<String, dynamic> get emptyPlayer => _emptyPlayer;
   List<Object> get teamPlayers1 => _teamPlayers1;
   List<Object> get teamPlayers2 => _teamPlayers2;
+
+  void oversCompleted(int id, String teamName, int value) {
+    if (_teamName1 == teamName) {
+      if (_oversCompleted1.containsKey(id)) {
+        _oversCompleted1.update(id, (value) => _oversCompleted1[id]! + value);
+      } else {
+        _oversCompleted1[id] = 1;
+      }
+    }
+    if (_teamName2 == teamName) {
+      if (_oversCompleted2.containsKey(id)) {
+        _oversCompleted2.update(id, (value) => _oversCompleted2[id]! + value);
+      } else {
+        _oversCompleted2[id] = 1;
+      }
+    }
+  }
+
+  int? getOversCompletedById(int id, String teamName) {
+    if (_teamName1 == teamName) {
+      if (_oversCompleted1.containsKey(id)) {
+        return _oversCompleted1[id];
+      } else {
+        return 0;
+      }
+    }
+    if (_teamName2 == teamName) {
+      if (_oversCompleted2.containsKey(id)) {
+        return _oversCompleted2[id];
+      } else {
+        return 0;
+      }
+    }
+    return 0;
+  }
 
   Map<String, dynamic>? fromObject(Object data) {
     return json.decode(json.encode(data));

@@ -147,7 +147,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = widget.model.fromObject(data);
-    oversCompleted?[PlayerData?["id"]] = 0;
     return Draggable<Object>(
       data: PlayerData?["id"],
       feedback: Container(
@@ -217,7 +216,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           Column(
             children: [
               Text("Overs"),
-              Text(PlayerData?["oversCompleted"].toString() ?? "null"),
+              Text(widget.model.getOversCompletedById(PlayerData?["id"], teamName).toString()),
               // Text(oversCompleted[PlayerData?["id"]].toString()),
             ],
           ),
