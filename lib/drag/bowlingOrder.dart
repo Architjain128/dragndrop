@@ -121,9 +121,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       if (data != null) {
         print(data);
         idx = data;
+        print(widget.model.bowlingOrder(teamName));
         widget.model.updateBowlingOrder(overNumber, data, teamName);
-        // bowlingList?[overNumber - 1] = data;
         widget.model.oversCompleted(data, teamName, 1);
+        print(widget.model.bowlingOrder(teamName));
+        // bowlingList?[overNumber - 1] = data;
         // print(oversCompleted[data]);
         // oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
         // print(oversCompleted[data]);
