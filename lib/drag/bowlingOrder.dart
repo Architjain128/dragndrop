@@ -70,7 +70,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              overNumber.toString(),
+              'hallo',
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -215,3 +215,4 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         // )
         );
   }
+}
