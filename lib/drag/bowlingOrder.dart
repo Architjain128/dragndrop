@@ -14,25 +14,6 @@ class BowlingOrderPage extends StatefulWidget {
   _BowlingOrderPageState createState() => _BowlingOrderPageState();
 }
 
-List<String> todos = [
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b",
-  "a",
-  "b"
-];
-
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
@@ -58,6 +39,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       );
     }, onAccept: (Object data) {
       if (data != null) {
+        print(data);
         setState(() {
           acceptedData = data;
         });
