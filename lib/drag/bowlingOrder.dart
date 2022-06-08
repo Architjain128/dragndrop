@@ -24,11 +24,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   List<Object>? allPlayers = [];
   List<int> bowlingList = [];
   Map<int, int> oversCompleted = {};
+
   @override
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
     bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
+
+    for (var p in widget.model.teamPlayers1) {
+      print(p);
+    }
+
     return Stack(
       children: [
         SafeArea(
