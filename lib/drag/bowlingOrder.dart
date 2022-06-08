@@ -131,8 +131,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Draggable<Object>(
       data: PlayerData?["id"],
       feedback: Container(
-        height: 30,
         alignment: Alignment.center,
+        padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(15),
