@@ -46,7 +46,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       return Container(
         color: Colors.cyan,
         child: Center(
-          child: _DragablePlayer(acceptedData),
+          child: Text("hi"),
         ),
       );
     }, onAccept: (Object data) {
