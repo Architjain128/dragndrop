@@ -18,7 +18,7 @@ class BowlingOrderPage extends StatefulWidget {
 }
 
 class _BowlingOrderPageState extends State<BowlingOrderPage> {
-  int zz;
+  int zz = 0;
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
