@@ -61,7 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         child: Stack(children: [
       Container(
         height: 30,
-        // width: 10,
+        width: 30,
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
           color: Colors.blue,
