@@ -190,26 +190,26 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
-    // return Stack(
-    //   children: [
-    //     SafeArea(
-    //       child: Column(
-    //         children: [
-    //           Expanded(
-    //             child: _OversToBeBowled(),
-    //           ),
-    //           _allPlayersComponenet(),
-    //         ],
-    //       ),
-    //     ),
-    //   ],
-    // );
+    return Stack(
+      children: [
+        SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: _OversToBeBowled(),
+              ),
+              _allPlayersComponenet(),
+            ],
+          ),
+        ),
+      ],
+    );
 
-    return Container(
-        child: Stack(children: <Widget>[
-      _OversToBeBowled(),
-      _allPlayersComponenet(),
-    ]));
+    // return Container(
+    //     child: Stack(children: <Widget>[
+    //   _OversToBeBowled(),
+    //   _allPlayersComponenet(),
+    // ]));
   }
 }
 
