@@ -31,9 +31,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
     bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
 
-    for (var p in widget.model.teamPlayers1) {
-      print(p);
-    }
+    // for (var p in widget.model.teamPlayers1) {
+    //   print(p);
+    //   // p["oversCompleted"]=0;
+    //   print(p);
+    // }
 
     return Stack(
       children: [
