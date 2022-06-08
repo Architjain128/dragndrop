@@ -16,16 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return ScopedModel<PandoraBox>(
-    //   model: model,
-    //   child:
-    return MaterialApp(
-      title: 'sports',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScopedModel<PandoraBox>(
+      model: model,
+      child: MaterialApp(
+        title: 'sports',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(),
       ),
-      home: MyHomePage(),
-      // ),
     );
   }
 }
