@@ -35,8 +35,8 @@ class PandoraBox extends Model {
   String _teamName1 = TEAM_NAME1;
   String _teamName2 = TEAM_NAME2;
   Map<String, dynamic> _emptyPlayer = json.decode(json.encode(EMPTY_PLAYER));
-  List<Map<String, dynamic>> _teamPlayers1 = json.decode(json.encode(TEAM1_SELECTED_PLAYERS));
-  List<Map<String, dynamic>> _teamPlayers2 = json.decode(json.encode(TEAM2_SELECTED_PLAYERS));
+  List<Map<String, dynamic>> _teamPlayers1 = json.decode(json.encode(TEAM1_SELECTED_PLAYERS)).toList();
+  List<Map<String, dynamic>> _teamPlayers2 = json.decode(json.encode(TEAM2_SELECTED_PLAYERS)).toList();
 
   int get totalOvers => _totalOvers;
   String get teamName1 => _teamName1;
