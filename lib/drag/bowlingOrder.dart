@@ -62,8 +62,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       onTap: () {},
       title: Text("Select Bowler"),
       subtitle: Text("Drag from below listed bowlers"),
-      leading: CircleAvatar(child: Text(overNumber.toString())),
-      trailing: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+      leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+      trailing: Icon(Icons.sports_cricket_outlined),
     ));
   }
 
