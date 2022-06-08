@@ -94,7 +94,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       return Container(
         color: Colors.cyan,
         child: Center(
-          child: idx == -1 ? _oversBowledEmpty(-1) : _oversBowled(overNumber, idx),
+          child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
         ),
       );
     }, onAccept: (int data) {
