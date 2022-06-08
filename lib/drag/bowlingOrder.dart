@@ -130,7 +130,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     Map<String, dynamic>? PlayerData = widget.model.fromObject(data);
     return Draggable<Object>(
       data: PlayerData?["id"],
-      feedback: Text(PlayerData?["name"]),
+      feedback: Text(PlayerData?["name"], style: TextStyle(backgroundColor: Colors.black12, color: Colors.white)),
       child: _DragablePlayer(PlayerData),
     );
   }
