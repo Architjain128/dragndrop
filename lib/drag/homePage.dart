@@ -25,8 +25,29 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Widget _choseTeam() {
+    List<Page> teams = [
+      Page(widget.model.teamName1, Icons.person_outline),
+      Page(widget.model.teamName2, Icons.person_outline),
+    ];
+    return BottomNavigationBar(
+      currentIndex: _currentPageIndex,
+      items: teams
+          .map((Page page) => BottomNavigationBarItem(
+                icon: Icon(page.iconData),
+                label: page.title,
+              ))
+          .toList(),
+      onTap: _openPage,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<Page> teams = [
+      Page(widget.model.teamName1, Icons.person_outline),
+      Page(widget.model.teamName2, Icons.person_outline),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text(widget.model.teamName1)),
@@ -37,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPageIndex,
-        items: widget._pages
+        items: teams
             .map((Page page) => BottomNavigationBarItem(
                   icon: Icon(page.iconData),
                   label: page.title,
