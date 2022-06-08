@@ -60,7 +60,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Card(
         child: Stack(children: [
       Container(
-        alignment: Alignment.center,
+        width: 5,
         padding: EdgeInsets.all(2),
         margin: EdgeInsets.all(2),
         child: Text(overNumber.toString()),
