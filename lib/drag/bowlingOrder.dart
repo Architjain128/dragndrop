@@ -64,7 +64,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       subtitle: Text("Drag from below listed bowlers"),
       leading: Row(children: <Widget>[
         Text(overNumber.toString()),
-        CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+        // CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
       ]),
       trailing: Icon(Icons.sports_cricket_outlined),
     ));
