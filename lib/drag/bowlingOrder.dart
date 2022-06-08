@@ -120,7 +120,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         print(data);
         idx = data;
         bowlingList[overNumber - 1] = data;
+        print(oversCompleted[data]);
         oversCompleted.update(data, (value) => oversCompleted[data]! + 1);
+        print(oversCompleted[data]);
         // if(data!=null && data && oversCompleted[data]!=null)oversCompleted[data]=oversCompleted[data]+1;
         // oversCompleted[data]!=null?oversCompleted[data]+=1:oversCompleted[data]=0;
       }
