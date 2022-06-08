@@ -76,13 +76,13 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           ],
         ),
       ),
-      Container(
-        width: MediaQuery.of(context).size.width * 0.1,
-        color: Colors.grey,
-        padding: EdgeInsets.all(2),
-        margin: EdgeInsets.all(2),
-        child: Text(overNumber.toString()),
-      ),
+      // Container(
+      //   width: MediaQuery.of(context).size.width * 0.1,
+      //   color: Colors.grey,
+      //   padding: EdgeInsets.all(2),
+      //   margin: EdgeInsets.all(2),
+      //   child: Text(overNumber.toString()),
+      // ),
       VerticalDivider(width: 2.0, color: Colors.black),
       ListTile(
         onTap: () {},
