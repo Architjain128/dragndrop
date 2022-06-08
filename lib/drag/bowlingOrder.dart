@@ -110,10 +110,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     List<Widget> data = [];
     int overNumber = 1;
     for (var idx in bowlingList) {
-      if (idx == -1)
-        data.add(_oversBowledEmpty(overNumber));
-      else
-        data.add(_oversBowled(overNumber, idx));
+      data.add(_oversBowledWrapper(overNumber, idx));
+      // if (idx == -1)
+      //   data.add(_oversBowledEmpty(overNumber));
+      // else
+      //   data.add(_oversBowled(overNumber, idx));
       overNumber += 1;
     }
     return data;
