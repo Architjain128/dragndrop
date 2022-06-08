@@ -71,7 +71,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           children: <Widget>[
             Text(
               'hallo',
-              // style: TextStyle(background: _paint),
+              style: TextStyle(color: Colors.blue),
             ),
           ],
         ),
