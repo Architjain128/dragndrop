@@ -23,7 +23,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MyHomePage(),
+        // home: MyHomePage(),
+        home: ScopedModelDescendant<PandoraBox>(
+          builder: (context, child, model) {
+            return MyHomePage();
+          },
+        ),
       ),
     );
   }
