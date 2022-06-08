@@ -22,14 +22,14 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   int zz = 0;
   String teamName = "";
   List<Object>? allPlayers = [];
-  List<int>? bowlingList = [];
+  // List<int>? bowlingList = [];
   // Map<int, int> oversCompleted = {};
 
   @override
   Widget build(BuildContext context) {
     teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
     allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
-    bowlingList = widget.model.bowlingOrder(teamName);
+    // bowlingList = widget.model.bowlingOrder(teamName);
 
     return Stack(
       children: [
@@ -134,7 +134,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   List<Widget> _listOfAllOvers() {
     List<Widget> data = [];
     int overNumber = 1;
-    for (var idx in bowlingList ?? []) {
+    for (var idx in widget.model.bowlingOrder(teamName) ?? []) {
       data.add(_oversBowledWrapper(overNumber, idx));
       overNumber += 1;
     }
