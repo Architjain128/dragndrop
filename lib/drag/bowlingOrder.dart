@@ -40,9 +40,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     }, onAccept: (Object data) {
       if (data != null) {
         print(data);
-        setState(() {
-          acceptedData = data;
-        });
+        acceptedData = data;
       }
     });
   }
