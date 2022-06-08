@@ -57,7 +57,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowledEmpty(int overNumber) {
     // Map<String, dynamic> player = json.decode(json.encode(data));
-    return Row(children: [
+    return Stack(children: [
       Text(overNumber.toString()),
       Card(
           child: ListTile(
