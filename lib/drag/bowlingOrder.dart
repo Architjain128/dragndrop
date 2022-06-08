@@ -48,7 +48,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     );
   }
 
-  Widget _oversBowled(int idx) {
+  Widget _oversBowled(int overNumber, int idx) {
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
     return Container(
       child: Text(player?["name"]),
@@ -83,7 +83,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     ]));
   }
 
-  Widget _oversBowledWrapper() {
+  Widget _oversBowledWrapper(int overNumber, int idx) {
     int idx = -1;
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
     return DragTarget(builder: (
@@ -94,13 +94,14 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       return Container(
         color: Colors.cyan,
         child: Center(
-          child: idx == -1 ? _oversBowledEmpty(-1) : _oversBowled(idx),
+          child: idx == -1 ? _oversBowledEmpty(-1) : _oversBowled(overNumber, idx),
         ),
       );
     }, onAccept: (int data) {
       if (data != null) {
         print(data);
         idx = data;
+        bowlingList[overNumber - 1] = data;
       }
     });
   }
@@ -112,7 +113,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       if (idx == -1)
         data.add(_oversBowledEmpty(overNumber));
       else
-        data.add(_oversBowled(idx));
+        data.add(_oversBowled(overNumber, idx));
       overNumber += 1;
     }
     return data;
