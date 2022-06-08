@@ -134,12 +134,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         alignment: Alignment.center,
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Colors.black,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Text(
           PlayerData?["name"],
-          style: TextStyle(backgroundColor: Colors.black, color: Colors.white, fontSize: 25),
+          style: TextStyle(
+            decoration: TextDecoration.none,
+            backgroundColor: Colors.black,
+            color: Colors.white,
+            fontSize: 25,
+          ),
         ),
       ),
       child: _DragablePlayer(PlayerData),
