@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // title: Center(child: Text("Bowling Order")),
       ),
       body: Center(
-        child: BowlingOrderPage(teamName: NAME, allPlayers: TEAM1_SELECTED_PLAYERS),
+        child: BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPageIndex,

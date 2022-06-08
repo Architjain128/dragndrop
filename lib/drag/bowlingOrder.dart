@@ -4,11 +4,14 @@ import 'dart:convert';
 import 'dart:core';
 import 'dart:ui';
 import '../data.dart';
+import '../main.dart';
 
 class BowlingOrderPage extends StatefulWidget {
+  PandoraBox model;
+  int? teamNumber;
   String? teamName;
   List<Object>? allPlayers = [];
-  BowlingOrderPage({Key? key, this.teamName, this.allPlayers}) : super(key: key);
+  BowlingOrderPage({Key? key, required this.model, this.teamNumber}) : super(key: key);
 
   @override
   _BowlingOrderPageState createState() => _BowlingOrderPageState();
@@ -155,6 +158,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   }
 
   Widget _allPlayersComponenet() {
+    print(zz);
     List<Widget> data = <Widget>[];
     if (widget.allPlayers != null) {
       for (var p in widget.allPlayers ?? []) {
@@ -178,6 +182,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
+    int zz = 1;
     // return Stack(
     //   children: [
     //     SafeArea(
