@@ -50,13 +50,33 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowled(int overNumber, int idx) {
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
-    return Container(
-      child: Text(player?["name"]),
-    );
+    return Card(
+        child: Stack(children: [
+      ListTile(
+        onTap: () {},
+        title: Text(player?["name"]),
+        subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
+        leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+        trailing: Icon(Icons.sports_cricket_outlined),
+      ),
+      VerticalDivider(width: 2.0, color: Colors.black),
+      Container(
+        height: 30,
+        width: 35,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Text(
+          overNumber.toString(),
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    ]));
   }
 
   Widget _oversBowledEmpty(int overNumber) {
-    // Map<String, dynamic> player = json.decode(json.encode(data));
     return Card(
         child: Stack(children: [
       ListTile(
@@ -111,10 +131,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     int overNumber = 1;
     for (var idx in bowlingList) {
       data.add(_oversBowledWrapper(overNumber, idx));
-      // if (idx == -1)
-      //   data.add(_oversBowledEmpty(overNumber));
-      // else
-      //   data.add(_oversBowled(overNumber, idx));
       overNumber += 1;
     }
     return data;
