@@ -59,6 +59,21 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     // Map<String, dynamic> player = json.decode(json.encode(data));
     return Card(
         child: Stack(children: [
+      // Container(
+      //   width: MediaQuery.of(context).size.width * 0.1,
+      //   color: Colors.grey,
+      //   padding: EdgeInsets.all(2),
+      //   margin: EdgeInsets.all(2),
+      //   child: Text(overNumber.toString()),
+      // ),
+      ListTile(
+        onTap: () {},
+        title: Text("Select Bowler"),
+        subtitle: Text("Drag from below listed bowlers"),
+        leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+        trailing: Icon(Icons.sports_cricket_outlined),
+      ),
+      VerticalDivider(width: 2.0, color: Colors.black),
       Container(
         height: 30,
         width: 35,
@@ -72,21 +87,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      // Container(
-      //   width: MediaQuery.of(context).size.width * 0.1,
-      //   color: Colors.grey,
-      //   padding: EdgeInsets.all(2),
-      //   margin: EdgeInsets.all(2),
-      //   child: Text(overNumber.toString()),
-      // ),
-      VerticalDivider(width: 2.0, color: Colors.black),
-      ListTile(
-        onTap: () {},
-        title: Text("Select Bowler"),
-        subtitle: Text("Drag from below listed bowlers"),
-        leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-        trailing: Icon(Icons.sports_cricket_outlined),
-      )
     ]));
   }
 
