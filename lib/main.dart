@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:core';
 import '../data.dart';
 
-void main() => runApp(MyApp(model: PandoraBox));
+void main() => runApp(MyApp(model: PandoraBox()));
 
 class MyApp extends StatelessWidget {
   final PandoraBox model;
