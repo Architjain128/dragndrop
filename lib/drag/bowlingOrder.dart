@@ -67,14 +67,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           color: Colors.blue,
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              overNumber.toString(),
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+        child: Text(
+          overNumber.toString(),
+          style: TextStyle(color: Colors.white),
         ),
       ),
       // Container(
