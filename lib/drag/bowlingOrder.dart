@@ -37,7 +37,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
-      child: Text('$player["id"]'),
+      child: Text('$player'),
     );
   }
 
@@ -63,6 +63,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         });
       }
     });
+  }
+
+  List<Widget> _listOfAllOvers{
+
   }
 
   Widget _DragablePlayerWrapper(Object data) {
@@ -194,14 +198,31 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Stack(children: <Widget>[
-      // new ListView(
-      //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
-      // ),
-      _OversToBeBowled(),
-      _allPlayersComponenet(),
-    ]));
+    return Stack(
+      children: [
+        SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: _OversToBeBowled(),
+              ),
+              _allPlayersComponenet(),
+            ],
+          ),
+        ),
+      ],
+    );
+    
+    
+    
+    // Container(
+    //     child: Stack(children: <Widget>[
+    //   // new ListView(
+    //   //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
+    //   // ),
+    //   _OversToBeBowled(),
+    //   _allPlayersComponenet(),
+    // ]));
   }
 }
 
