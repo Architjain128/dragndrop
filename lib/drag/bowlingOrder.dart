@@ -37,6 +37,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _OversToBeBowled() {
     Object acceptedData = EMPTY_PLAYER;
     Map<String, dynamic> player = json.decode(json.encode(EMPTY_PLAYER));
+    print(acceptedData);
     return DragTarget(builder: (
       BuildContext context,
       List<dynamic> accepted,
