@@ -126,11 +126,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return data;
   }
 
-  Widget _DragablePlayerWrapper(int idx) {
-    Map<String, dynamic>? PlayerData = widget.model.getPlayerbyId(idx, teamName);
+  Widget _DragablePlayerWrapper(Object data) {
+    Map<String, dynamic>? PlayerData = widget.model.fromObject(data);
     return Draggable<Object>(
-      data: idx,
-      feedback: Text("feedback"),
+      data: PlayerData?["id"],
+      feedback: Text(PlayerData?["name"]),
       child: _DragablePlayer(PlayerData),
     );
   }
