@@ -180,29 +180,29 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: _OversToBeBowled(),
-              ),
-              _allPlayersComponenet(),
-            ],
-          ),
-        ),
-      ],
-    );
+    // return Stack(
+    //   children: [
+    //     SafeArea(
+    //       child: Column(
+    //         children: [
+    //           Expanded(
+    //             child: _OversToBeBowled(),
+    //           ),
+    //           _allPlayersComponenet(),
+    //         ],
+    //       ),
+    //     ),
+    //   ],
+    // );
 
-    // Container(
-    //     child: Stack(children: <Widget>[
-    //   // new ListView(
-    //   //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
-    //   // ),
-    //   _OversToBeBowled(),
-    //   _allPlayersComponenet(),
-    // ]));
+    return Container(
+        child: Stack(children: <Widget>[
+      // new ListView(
+      //   children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
+      // ),
+      _OversToBeBowled(),
+      _allPlayersComponenet(),
+    ]));
   }
 }
 
