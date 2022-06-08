@@ -61,6 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         child: Stack(children: [
       Container(
         width: 5,
+        color: Colors.grey,
         padding: EdgeInsets.all(2),
         margin: EdgeInsets.all(2),
         child: Text(overNumber.toString()),
