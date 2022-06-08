@@ -189,7 +189,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       new ListView(
         children: todos.map((todo) => new ListTile(title: new Text(todo))).toList(),
       ),
-      // _OversToBeBowled(),
+      _OversToBeBowled(),
       _allPlayersComponenet(),
     ]));
   }
