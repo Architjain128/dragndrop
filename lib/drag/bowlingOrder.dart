@@ -57,14 +57,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowledEmpty(int overNumber) {
     // Map<String, dynamic> player = json.decode(json.encode(data));
-    return Card(
-        child: ListTile(
-      onTap: () {},
-      title: Text("Select Bowler"),
-      subtitle: Text("Drag from below listed bowlers"),
-      leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-      trailing: Icon(Icons.sports_cricket_outlined),
-    ));
+    return Row(children: [
+      Text(overNumber.toString()),
+      Card(
+          child: ListTile(
+        onTap: () {},
+        title: Text("Select Bowler"),
+        subtitle: Text("Drag from below listed bowlers"),
+        leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+        trailing: Icon(Icons.sports_cricket_outlined),
+      ))
+    ]);
   }
 
   Widget _OversToBeBowled() {
