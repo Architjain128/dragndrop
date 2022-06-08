@@ -38,13 +38,57 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Text("hi");
   }
 
-  // Widget _DragablePlayerWrapper(Object data) {
-  //   return Draggable(
-  //     feedback: _DragablePlayer(data),
-  //     child: _DragablePlayer(data),
-  //     data: DragAndDropItem(child: Text('New default item')),
-  //   );
-  // }
+  Widget _DragablePlayerWrapper(Object data) {
+    Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
+    return Draggable<Map<String, dynamic>>(data: PlayerData, feedback: Text("feedback"), childWhenDragging: Text("dragging"), child: _DragablePlayer(data));
+  }
+  // Draggable<int>(
+  //         // Data is the value this Draggable stores.
+  //         data: 10,
+  //         feedback: Container(
+  //           color: Colors.deepOrange,
+  //           height: 100,
+  //           width: 100,
+  //           child: const Icon(Icons.directions_run),
+  //         ),
+  //         childWhenDragging: Container(
+  //           height: 100.0,
+  //           width: 100.0,
+  //           color: Colors.pinkAccent,
+  //           child: const Center(
+  //             child: Text('Child When Dragging'),
+  //           ),
+  //         ),
+  //         child: Container(
+  //           height: 100.0,
+  //           width: 100.0,
+  //           color: Colors.lightGreenAccent,
+  //           child: const Center(
+  //             child: Text('Draggable'),
+  //           ),
+  //         ),
+  //       ),
+  //       DragTarget<int>(
+  //         builder: (
+  //           BuildContext context,
+  //           List<dynamic> accepted,
+  //           List<dynamic> rejected,
+  //         ) {
+  //           return Container(
+  //             height: 100.0,
+  //             width: 100.0,
+  //             color: Colors.cyan,
+  //             child: Center(
+  //               child: Text('Value is updated to: $acceptedData'),
+  //             ),
+  //           );
+  //         },
+  //         onAccept: (int data) {
+  //           setState(() {
+  //             acceptedData += data;
+  //           });
+  //         },
+  //       ),
 
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
