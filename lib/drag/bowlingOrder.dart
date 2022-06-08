@@ -60,6 +60,23 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     return Card(
         child: Stack(children: [
       Container(
+        height: 30,
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'hallo',
+              // style: TextStyle(background: _paint),
+            ),
+          ],
+        ),
+      ),
+      Container(
         width: MediaQuery.of(context).size.width * 0.1,
         color: Colors.grey,
         padding: EdgeInsets.all(2),
