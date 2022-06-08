@@ -40,7 +40,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
-    return Draggable<Map<String, dynamic>>(data: PlayerData, feedback: Text("feedback"), childWhenDragging: Text("dragging"), child: _DragablePlayer(data));
+    return Draggable<Map<String, dynamic>>(data: PlayerData, feedback: Text("feedback"), child: _DragablePlayer(data));
   }
   // Draggable<int>(
   //         // Data is the value this Draggable stores.
