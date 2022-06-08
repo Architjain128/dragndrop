@@ -63,15 +63,15 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         height: 30,
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.blue,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'hallo',
-              style: TextStyle(color: Colors.white, backgroundColor: Colors.blue),
+              overNumber.toString(),
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -215,4 +215,3 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         // )
         );
   }
-}
