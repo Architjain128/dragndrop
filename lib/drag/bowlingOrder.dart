@@ -24,6 +24,29 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   List<Object>? allPlayers = [];
   List<int> bowlingList = [];
 
+  @override
+  Widget build(BuildContext context) {
+    teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
+    allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
+    bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
+    return Stack(
+      children: [
+        SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                  // child: _OversToBeBowled(),
+                  child: Column(
+                children: _listOfAllOvers(),
+              )),
+              _allPlayersComponenet(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _oversBowled(Object? data) {
     Map<String, dynamic> player = json.decode(json.encode(data));
     return Container(
@@ -33,9 +56,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowledEmpty() {
     // Map<String, dynamic> player = json.decode(json.encode(data));
-    return Container(
-      child: Text('Empty'),
-    );
+    return Card(child: ListTile(onTap: () {}, title: Text("Select Bowler"), subtitle: Text("Drag from below listed bowlers"), leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")), trailing: Icon(Icons.sports_cricket_outlined)));
   }
 
   Widget _OversToBeBowled() {
@@ -80,54 +101,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       child: _DragablePlayer(data),
     );
   }
-
-  // Draggable<int>(
-  //         // Data is the value this Draggable stores.
-  //         data: 10,
-  //         feedback: Container(
-  //           color: Colors.deepOrange,
-  //           height: 100,
-  //           width: 100,
-  //           child: const Icon(Icons.directions_run),
-  //         ),
-  //         childWhenDragging: Container(
-  //           height: 100.0,
-  //           width: 100.0,
-  //           color: Colors.pinkAccent,
-  //           child: const Center(
-  //             child: Text('Child When Dragging'),
-  //           ),
-  //         ),
-  //         child: Container(
-  //           height: 100.0,
-  //           width: 100.0,
-  //           color: Colors.lightGreenAccent,
-  //           child: const Center(
-  //             child: Text('Draggable'),
-  //           ),
-  //         ),
-  //       ),
-  //       DragTarget<int>(
-  //         builder: (
-  //           BuildContext context,
-  //           List<dynamic> accepted,
-  //           List<dynamic> rejected,
-  //         ) {
-  //           return Container(
-  //             height: 100.0,
-  //             width: 100.0,
-  //             color: Colors.cyan,
-  //             child: Center(
-  //               child: Text('Value is updated to: $acceptedData'),
-  //             ),
-  //           );
-  //         },
-  //         onAccept: (int data) {
-  //           setState(() {
-  //             acceptedData += data;
-  //           });
-  //         },
-  //       ),
 
   Widget _DragablePlayer(Object data) {
     Map<String, dynamic>? PlayerData = json.decode(json.encode(data));
@@ -205,52 +178,4 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         // )
         );
   }
-
-  @override
-  Widget build(BuildContext context) {
-    teamName = widget.teamNumber == 0 ? widget.model.teamName1 : widget.model.teamName2;
-    allPlayers = widget.teamNumber == 0 ? widget.model.teamPlayers1 : widget.model.teamPlayers2;
-    bowlingList = List<int>.filled(widget.model.totalOvers, -1, growable: false);
-    return Stack(
-      children: [
-        SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                  // child: _OversToBeBowled(),
-                  child: Column(
-                children: _listOfAllOvers(),
-              )),
-              _allPlayersComponenet(),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
 }
-
-// class Player {
-//   final int id;
-//   final String skill_name;
-//   final String nationality;
-//   final String additional_skills;
-//   final PlayerSpecifcs sport_specific_keys;
-//   final String name;
-//   final bool chosen;
-//   final bool selected;
-//   Player(this.id, this.skill_name, this.nationality, this.additional_skills, this.sport_specific_keys, this.name, this.chosen, this.selected);
-// }
-
-// class PlayerSpecifcs {
-//   final String additional_skill;
-//   final int is_caption;
-//   final PlayerStyle batting;
-//   final PlayerStyle bowling;
-//   PlayerSpecifcs(this.additional_skill, this.is_caption, this.batting, this.bowling);
-// }
-
-// class PlayerStyle {
-//   final String style;
-//   PlayerStyle(this.style);
-// }
