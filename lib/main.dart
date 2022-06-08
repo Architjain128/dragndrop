@@ -35,25 +35,31 @@ class PandoraBox extends Model {
   String _teamName1 = TEAM_NAME1;
   String _teamName2 = TEAM_NAME2;
   Map<String, dynamic> _emptyPlayer = json.decode(json.encode(EMPTY_PLAYER));
-  List<Map<String, dynamic>> _teamPlayers1 = json.decode(json.encode(TEAM1_SELECTED_PLAYERS)).toList();
-  List<Map<String, dynamic>> _teamPlayers2 = json.decode(json.encode(TEAM2_SELECTED_PLAYERS)).toList();
+  List<Object> _teamPlayers1 = TEAM1_SELECTED_PLAYERS;
+  List<Object> _teamPlayers2 = TEAM2_SELECTED_PLAYERS;
 
   int get totalOvers => _totalOvers;
   String get teamName1 => _teamName1;
   String get teamName2 => _teamName2;
   Map<String, dynamic> get emptyPlayer => _emptyPlayer;
-  List<Map<String, dynamic>> get teamPlayers1 => _teamPlayers1;
-  List<Map<String, dynamic>> get teamPlayers2 => _teamPlayers2;
+  List<Object> get teamPlayers1 => _teamPlayers1;
+  List<Object> get teamPlayers2 => _teamPlayers2;
+
+  Map<String, dynamic>? fromObject(Object data) {
+    return json.decode(json.encode(data));
+  }
 
   Map<String, dynamic>? getPlayerbyId(int id, String teamName) {
     if (teamName1 == teamName) {
       for (var player in _teamPlayers1) {
-        if (player["id"] == id) return player;
+        Map<String, dynamic>? players = fromObject(player);
+        if (players?["id"] == id) return players;
       }
       return _emptyPlayer;
     } else if (teamName2 == teamName) {
       for (var player in _teamPlayers2) {
-        if (player["id"] == id) return player;
+        Map<String, dynamic>? players = fromObject(player);
+        if (players?["id"] == id) return players;
       }
       return _emptyPlayer;
     } else {
