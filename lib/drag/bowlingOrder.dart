@@ -132,7 +132,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       data: PlayerData?["id"],
       feedback: Container(
         height: 30,
-        width: 35,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.blue,
@@ -140,13 +139,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         ),
         child: Text(
           PlayerData?["name"],
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(backgroundColor: Colors.black, color: Colors.white, fontSize: 25),
         ),
       ),
-      // Text(
-      //   PlayerData?["name"],
-      //   style: TextStyle(backgroundColor: Colors.black, color: Colors.white, fontSize: 25),
-      // ),
       child: _DragablePlayer(PlayerData),
     );
   }
