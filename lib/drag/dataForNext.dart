@@ -41,9 +41,9 @@ class _DataForNextPageState extends State<DataForNextPage> {
                     ),
                     Divider(height: 2, color: Colors.black),
                     Text(teamName2),
-                    // ListView(
-                    //   children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
-                    // ),
+                    Column(
+                      children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                    ),
                   ],
                 ),
               ),
