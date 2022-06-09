@@ -80,7 +80,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         },
         onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
         child: ListTile(
-          key: Key((overNumber - 1).toString()),
+          // key: Key((overNumber - 1).toString()),
           onTap: () {
             // widget.model.freeOver(overNumber, idx, teamName);
           },
@@ -95,8 +95,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowledEmpty(int overNumber) {
     return Card(
+      // key: Key((overNumber - 1).toString()),
       child: ListTile(
-        key: Key((overNumber - 1).toString()),
         onTap: () {},
         title: Text("Select Bowler"),
         subtitle: Text("Drag from below listed bowlers"),
@@ -115,24 +115,25 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       List<dynamic> rejected,
     ) {
       return Container(
+          key: Key((overNumber - 1).toString()),
           child: Stack(
-        children: [
-          idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
-          Container(
-            height: 30,
-            width: 35,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Text(
-              overNumber.toString(),
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
-      )
+            children: [
+              idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
+              Container(
+                height: 30,
+                width: 35,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Text(
+                  overNumber.toString(),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          )
           // child: Center(
           //   child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
           // ),
