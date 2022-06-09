@@ -27,7 +27,7 @@ class _DataForNextPageState extends State<DataForNextPage> {
     teamName2 = widget.model.teamName2;
     bowlingOrder1 = widget.model.bowlingOrder(teamName1);
     bowlingOrder2 = widget.model.bowlingOrder(teamName2);
-    return Stack(
+    return Column(
       children: [
         Text(teamName1),
         new ListView(
