@@ -35,10 +35,9 @@ class _DataForNextPageState extends State<DataForNextPage> {
     return Stack(
       children: [
         SafeArea(
-          child: Container(
-            child:Text("NEXT SCREEN");
-          )
-        )
+            child: Container(
+          child: Text("NEXT SCREEN"),
+        ))
       ],
     );
   }
