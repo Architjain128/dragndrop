@@ -128,10 +128,28 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       List<dynamic> rejected,
     ) {
       return Container(
-        child: Center(
-          child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
-        ),
-      );
+          child: Stack(
+        children: [
+          idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
+          Container(
+            height: 30,
+            width: 35,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Text(
+              overNumber.toString(),
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      )
+          // child: Center(
+          //   child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
+          // ),
+          );
     }, onAccept: (int data) {
       if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
         print(data);
