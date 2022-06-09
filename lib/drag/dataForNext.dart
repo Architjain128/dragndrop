@@ -28,9 +28,10 @@ class _DataForNextPageState extends State<DataForNextPage> {
     teamName2 = widget.model.teamName2;
     bowlingOrder1 = widget.model.bowlingOrder(teamName1);
     bowlingOrder2 = widget.model.bowlingOrder(teamName2);
+    print("Chosen bowling Order");
     print(teamName1);
     print(bowlingOrder1);
-    print(teamName1);
+    print(teamName2);
     print(bowlingOrder2);
     return Stack(
       children: [
