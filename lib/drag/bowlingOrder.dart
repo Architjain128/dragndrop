@@ -103,19 +103,19 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
         trailing: Icon(Icons.sports_cricket_outlined),
       ),
-      Container(
-        height: 30,
-        width: 35,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Text(
-          overNumber.toString(),
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+      // Container(
+      //   height: 30,
+      //   width: 35,
+      //   alignment: Alignment.center,
+      //   decoration: BoxDecoration(
+      //     color: Colors.blue,
+      //     borderRadius: BorderRadius.circular(15),
+      //   ),
+      //   child: Text(
+      //     overNumber.toString(),
+      //     style: TextStyle(color: Colors.white),
+      //   ),
+      // ),
     ]));
   }
 
