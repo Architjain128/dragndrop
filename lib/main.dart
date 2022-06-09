@@ -165,19 +165,19 @@ class PandoraBox extends Model {
       return value;
     }
 
-    if (teamName == _teamName1) {
-      if (_oversCompleted1[idx] == 4) {
-        value = false;
-      }
-    }
-    if (teamName == _teamName2) {
-      if (_oversCompleted2[idx] == 4) {
-        value = false;
-      }
-    }
-    if (value == false) {
-      print("Max limit of 4 overs reached.");
-    }
+    // if (teamName == _teamName1) {
+    //   if (_oversCompleted1[idx] == 4) {
+    //     value = false;
+    //   }
+    // }
+    // if (teamName == _teamName2) {
+    //   if (_oversCompleted2[idx] == 4) {
+    //     value = false;
+    //   }
+    // }
+    // if (value == false) {
+    //   print("Max limit of 4 overs reached.");
+    // }
     return value;
   }
 }
