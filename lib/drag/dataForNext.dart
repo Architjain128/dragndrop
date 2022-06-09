@@ -21,12 +21,17 @@ class _DataForNextPageState extends State<DataForNextPage> {
   String teamName2 = "";
   List<int>? bowlingOrder1 = [];
   List<int>? bowlingOrder2 = [];
+
   @override
   Widget build(BuildContext context) {
     teamName1 = widget.model.teamName1;
     teamName2 = widget.model.teamName2;
     bowlingOrder1 = widget.model.bowlingOrder(teamName1);
     bowlingOrder2 = widget.model.bowlingOrder(teamName2);
+    print(teamName1);
+    print(bowlingOrder1);
+    print(teamName1);
+    print(bowlingOrder2);
     return Stack(
       children: [
         SafeArea(
