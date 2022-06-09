@@ -88,7 +88,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
           leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
           trailing: Container(
-            padding: EdgeInsets.only(right: 10),
+            margin: EdgeInsets.only(right: 10),
             child: Icon(Icons.sports_cricket_outlined),
           ),
         ),
