@@ -84,6 +84,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           onTap: () {
             // widget.model.freeOver(overNumber, idx, teamName);
           },
+          contentPadding: EdgeInsets.only(right: 10),
           title: Text(player?["name"]),
           subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
           leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
