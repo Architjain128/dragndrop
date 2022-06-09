@@ -162,6 +162,7 @@ class PandoraBox extends Model {
     }
     if (value == false) {
       print("No consequtive overs allowed.");
+      return value;
     }
 
     if (teamName == _teamName1) {
