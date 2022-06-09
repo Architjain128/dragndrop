@@ -27,25 +27,26 @@ class _DataForNextPageState extends State<DataForNextPage> {
     teamName2 = widget.model.teamName2;
     bowlingOrder1 = widget.model.bowlingOrder(teamName1);
     bowlingOrder2 = widget.model.bowlingOrder(teamName2);
-    return Stack(children: [
-      SafeArea(
-          child: Column(children: [
-        Expanded(
-          child: Column(
-            children: [
-              Text(teamName1),
-              ListView(
-                children: bowlingOrder1!.map((todo) => Text(todo.toString()) as Widget).toList(),
-              ),
-              Divider(height: 2, color: Colors.black),
-              Text(teamName2),
-              ListView(
-                children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
-              ),
-            ],
+    return Stack(
+      children: [
+        SafeArea(
+          child: Expanded(
+            child: Column(
+              children: [
+                Text(teamName1),
+                ListView(
+                  children: bowlingOrder1!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                ),
+                Divider(height: 2, color: Colors.black),
+                Text(teamName2),
+                ListView(
+                  children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                ),
+              ],
+            ),
           ),
         )
-      ]))
-    ]);
+      ],
+    );
   }
 }
