@@ -96,6 +96,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowledEmpty(int overNumber) {
     return Card(
       child: ListTile(
+        key: Key((overNumber - 1).toString()),
         onTap: () {},
         title: Text("Select Bowler"),
         subtitle: Text("Drag from below listed bowlers"),
