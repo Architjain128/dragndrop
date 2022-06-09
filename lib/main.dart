@@ -76,17 +76,14 @@ class PandoraBox extends Model {
   void oversCompleted(int id, String teamName, int value) {
     if (_teamName1 == teamName) {
       if (_oversCompleted1.containsKey(id)) {
-        print(_oversCompleted1[id]);
         _oversCompleted1[id] = _oversCompleted1[id]! + value;
-        // _oversCompleted1.update(id, (value) => _oversCompleted1[id]! + value);
-        print(_oversCompleted1[id]);
       } else {
         _oversCompleted1[id] = 1;
       }
     }
     if (_teamName2 == teamName) {
       if (_oversCompleted2.containsKey(id)) {
-        _oversCompleted2.update(id, (value) => _oversCompleted2[id]! + value);
+        _oversCompleted2[id] = _oversCompleted2[id]! + value;
       } else {
         _oversCompleted2[id] = 1;
       }
@@ -168,19 +165,19 @@ class PandoraBox extends Model {
       return value;
     }
 
-    // if (teamName == _teamName1) {
-    //   if (_oversCompleted1[idx] == 4) {
-    //     value = false;
-    //   }
-    // }
-    // if (teamName == _teamName2) {
-    //   if (_oversCompleted2[idx] == 4) {
-    //     value = false;
-    //   }
-    // }
-    // if (value == false) {
-    //   print("Max limit of 4 overs reached.");
-    // }
+    if (teamName == _teamName1) {
+      if (_oversCompleted1[idx] == 4) {
+        value = false;
+      }
+    }
+    if (teamName == _teamName2) {
+      if (_oversCompleted2[idx] == 4) {
+        value = false;
+      }
+    }
+    if (value == false) {
+      print("Max limit of 4 overs reached.");
+    }
     return value;
   }
 }

@@ -172,6 +172,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       margin: const EdgeInsets.all(10.0),
       padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
       decoration: BoxDecoration(
+        color: widget.model.getOversCompletedById(PlayerData?["id"], teamName) == 4 ? Colors.grey : Colors.white,
         border: Border.all(color: Color.fromRGBO(0, 0, 0, 1), width: 1),
         borderRadius: BorderRadius.circular(12),
       ),
