@@ -107,47 +107,50 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   }
 
   Widget _oversBowledWrapper(int overNumber, int idx) {
-    // int idx = -1;
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
-    return DragTarget(builder: (
-      BuildContext context,
-      List<dynamic> accepted,
-      List<dynamic> rejected,
-    ) {
-      return Container(
-          key: Key((overNumber - 1).toString()),
-          child: Stack(
-            children: [
-              idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
-              Container(
-                height: 30,
-                width: 35,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  overNumber.toString(),
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
-          )
-          // child: Center(
-          //   child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
-          // ),
-          );
-    }, onAccept: (int data) {
-      if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
-        print(data);
-        idx = data;
-        // print(widget.model.bowlingOrder(teamName));
-        widget.model.updateBowlingOrder(overNumber, data, teamName);
-        widget.model.oversCompleted(data, teamName, 1);
-        // print(widget.model.bowlingOrder(teamName));
-      }
-    });
+
+    return DragTarget(
+        key: Key((overNumber - 1).toString()),
+        builder: (
+          BuildContext context,
+          List<dynamic> accepted,
+          List<dynamic> rejected,
+        ) {
+          return Container(
+              key: Key((overNumber - 1).toString()),
+              child: Stack(
+                children: [
+                  idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
+                  Container(
+                    height: 30,
+                    width: 35,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      overNumber.toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              )
+              // child: Center(
+              //   child: idx == -1 ? _oversBowledEmpty(overNumber) : _oversBowled(overNumber, idx),
+              // ),
+              );
+        },
+        onAccept: (int data) {
+          if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
+            print(data);
+            idx = data;
+            // print(widget.model.bowlingOrder(teamName));
+            widget.model.updateBowlingOrder(overNumber, data, teamName);
+            widget.model.oversCompleted(data, teamName, 1);
+            // print(widget.model.bowlingOrder(teamName));
+          }
+        });
   }
 
   List<Widget> _listOfAllOvers() {
