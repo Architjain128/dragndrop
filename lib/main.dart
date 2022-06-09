@@ -77,8 +77,8 @@ class PandoraBox extends Model {
     if (_teamName1 == teamName) {
       if (_oversCompleted1.containsKey(id)) {
         print(_oversCompleted1[id]);
-        print(value);
-        _oversCompleted1.update(id, (value) => value);
+        print(_oversCompleted1[id]! + value);
+        _oversCompleted1.update(id, (value) => _oversCompleted1[id]! + value);
         print(_oversCompleted1[id]);
       } else {
         _oversCompleted1[id] = 1;
