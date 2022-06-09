@@ -49,14 +49,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     );
   }
 
-  void _onDrag(BuildContext context, DragUpdateDetails update) {
-    print("hi");
-    print(update);
-    print(update.localPosition.dx);
-    // RenderBox box = context.findRenderBox();
-    // Offset localOffset = box.globalToLocal(update.globalPosition);
-    // RenderBox box = context.findRenderObject();
-    // Offset localOffset = box.globalToLocal(start.globalPosition);
+  void _onDrag(BuildContext context, DragUpdateDetails update, int overNumber, int idx) {
+    if (update.localPosition.dx.abs() > 20) {
+      widget.model.freeOver(overNumber, idx, teamName);
+    }
   }
 
   Widget _oversBowled(int overNumber, int idx) {
@@ -67,7 +63,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         child: Stack(children: [
           GestureDetector(
             onTap: () {},
-            onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update),
+            onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
             child: ListTile(
               onTap: () {
                 widget.model.freeOver(overNumber, idx, teamName);
