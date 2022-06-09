@@ -180,4 +180,10 @@ class PandoraBox extends Model {
     }
     return value;
   }
+
+  void freeOver(int overNumber, int id, String teamName) {
+    updateBowlingOrder(overNumber, -1, teamName);
+    oversCompleted(id, teamName, -1);
+    notifyListeners();
+  }
 }
