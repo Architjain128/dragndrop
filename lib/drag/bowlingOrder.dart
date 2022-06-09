@@ -60,7 +60,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _reorderableWrapper() {
     return ReorderableListView(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      // padding: const EdgeInsets.symmetric(horizontal: 40),
       children: _listOfAllOvers(),
       onReorder: (int oldIndex, int newIndex) {
         print(oldIndex);
@@ -80,7 +80,6 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         },
         onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
         child: ListTile(
-          // key: Key((overNumber - 1).toString()),
           onTap: () {
             // widget.model.freeOver(overNumber, idx, teamName);
           },
