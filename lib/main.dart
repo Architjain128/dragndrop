@@ -200,7 +200,7 @@ class PandoraBox extends Model {
     List<int> _newBowlingOrder = List<int>.filled(TOTAL_OVERS, 0, growable: false);
     List<int> _curBowlingOrder = teamName == _teamName1 ? _bowlingOrder1 : _bowlingOrder2;
     if (oldId < newId) {
-      //goes down
+      newId -= 1; //goes down
       for (int i = 0; i < oldId; i++) {
         _newBowlingOrder[i] = _curBowlingOrder[i];
       }
