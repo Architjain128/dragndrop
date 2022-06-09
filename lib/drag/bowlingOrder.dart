@@ -55,14 +55,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         elevation: 5,
         color: Colors.black12,
         child: Stack(children: [
-          ListTile(
-            onTap: () {
-              widget.model.freeOver(overNumber, idx, teamName);
-            },
-            title: Text(player?["name"]),
-            subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
-            leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-            trailing: Icon(Icons.sports_cricket_outlined),
+          GestureDetector(
+            onTap: () {},
+            child: ListTile(
+              onTap: () {
+                widget.model.freeOver(overNumber, idx, teamName);
+              },
+              title: Text(player?["name"]),
+              subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
+              leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+              trailing: Icon(Icons.sports_cricket_outlined),
+            ),
           ),
           Container(
             height: 30,
