@@ -6,11 +6,10 @@ import 'dart:core';
 
 class MyHomePage extends StatefulWidget {
   final PandoraBox model;
-  final List<Page> _pages = [
-    Page("team1", Icons.person_outline),
-    Page("team2", Icons.person_outline),
-  ];
-
+  // final List<Page> _pages = [
+  //   Page("team1", Icons.person_outline),
+  //   Page("team2", Icons.person_outline),
+  // ];
   MyHomePage({Key? key, required this.model}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -30,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Page> teams = [
       Page(widget.model.teamName1, Icons.person_outline),
       Page(widget.model.teamName2, Icons.person_outline),
+      Page("Next", Icons.person_outline),
     ];
     return Scaffold(
       appBar: AppBar(
