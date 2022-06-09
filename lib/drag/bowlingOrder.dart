@@ -61,7 +61,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _reorderableWrapper() {
     return ReorderableListView(
       // padding: const EdgeInsets.symmetric(horizontal: 40),
-      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.all(10),
       children: _listOfAllOvers(),
       onReorder: (int oldIndex, int newIndex) {
         print(oldIndex);
