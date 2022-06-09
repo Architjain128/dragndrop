@@ -63,7 +63,9 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         color: Colors.black12,
         child: Stack(children: [
           GestureDetector(
-            onTap: () {},
+            onDoubleTap: () {
+              widget.model.freeOver(overNumber, idx, teamName);
+            },
             onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
             child: ListTile(
               onTap: () {
