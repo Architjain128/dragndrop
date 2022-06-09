@@ -118,7 +118,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         ),
       );
     }, onAccept: (int data) {
-      if (data != null) {
+      if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
         print(data);
         idx = data;
         widget.model.updateBowlingOrder(overNumber, data, teamName);
