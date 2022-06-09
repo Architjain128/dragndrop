@@ -77,8 +77,8 @@ class PandoraBox extends Model {
     if (_teamName1 == teamName) {
       if (_oversCompleted1.containsKey(id)) {
         print(_oversCompleted1[id]);
-        print(_oversCompleted1[id]! + value);
-        _oversCompleted1.update(id, (value) => _oversCompleted1[id]! + value);
+        value = _oversCompleted1[id]! + value;
+        _oversCompleted1.update(id, (value) => value);
         print(_oversCompleted1[id]);
       } else {
         _oversCompleted1[id] = 1;
@@ -86,7 +86,9 @@ class PandoraBox extends Model {
     }
     if (_teamName2 == teamName) {
       if (_oversCompleted2.containsKey(id)) {
-        _oversCompleted2.update(id, (value) => _oversCompleted2[id]! + value);
+        print(_oversCompleted1[id]);
+        value = _oversCompleted2[id]! + value;
+        _oversCompleted2.update(id, (value) => value);
       } else {
         _oversCompleted2[id] = 1;
       }
