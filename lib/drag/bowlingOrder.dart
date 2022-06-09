@@ -121,10 +121,10 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
         print(data);
         idx = data;
-        print(widget.model.bowlingOrder(teamName));
+        // print(widget.model.bowlingOrder(teamName));
         widget.model.updateBowlingOrder(overNumber, data, teamName);
         widget.model.oversCompleted(data, teamName, 1);
-        print(widget.model.bowlingOrder(teamName));
+        // print(widget.model.bowlingOrder(teamName));
       }
     });
   }

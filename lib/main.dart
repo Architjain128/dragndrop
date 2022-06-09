@@ -76,7 +76,9 @@ class PandoraBox extends Model {
   void oversCompleted(int id, String teamName, int value) {
     if (_teamName1 == teamName) {
       if (_oversCompleted1.containsKey(id)) {
+        print(_oversCompleted1[id]);
         _oversCompleted1.update(id, (value) => _oversCompleted1[id]! + value);
+        print(_oversCompleted1[id]);
       } else {
         _oversCompleted1[id] = 1;
       }
