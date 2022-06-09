@@ -52,6 +52,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   void _onDrag(BuildContext context, DragUpdateDetails update, int overNumber, int idx) {
     if (update.localPosition.dx.abs() > 20) {
       widget.model.freeOver(overNumber, idx, teamName);
+      return;
     }
   }
 
