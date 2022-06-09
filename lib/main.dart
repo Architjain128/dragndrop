@@ -127,4 +127,56 @@ class PandoraBox extends Model {
       return _emptyPlayer;
     }
   }
+
+  bool checkBoundaryConditions(int overNumber, int idx, String teamName) {
+    bool value = true;
+    if (_teamName1 == teamName) {
+      if (overNumber == 1) {
+        if (_bowlingOrder1[overNumber] == idx) {
+          value = false;
+        }
+      } else if (overNumber == 20) {
+        if (_bowlingOrder1[overNumber - 2] == idx) {
+          value = false;
+        }
+      } else {
+        if (_bowlingOrder1[overNumber] == idx && _bowlingOrder1[overNumber - 2] == idx) {
+          value = false;
+        }
+      }
+    }
+    if (_teamName2 == teamName) {
+      if (overNumber == 1) {
+        if (_bowlingOrder2[overNumber] == idx) {
+          value = false;
+        }
+      } else if (overNumber == 20) {
+        if (_bowlingOrder2[overNumber - 2] == idx) {
+          value = false;
+        }
+      } else {
+        if (_bowlingOrder2[overNumber] == idx && _bowlingOrder2[overNumber - 2] == idx) {
+          value = false;
+        }
+      }
+    }
+    if (value == false) {
+      print("No consequtive overs allowed.");
+    }
+
+    if (teamName == _teamName1) {
+      if (_oversCompleted1[idx] == 4) {
+        value = false;
+      }
+    }
+    if (teamName == _teamName2) {
+      if (_oversCompleted2[idx] == 4) {
+        value = false;
+      }
+    }
+    if (value == false) {
+      print("Max limit of 4 overs reached.");
+    }
+    return value;
+  }
 }

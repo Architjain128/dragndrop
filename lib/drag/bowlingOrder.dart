@@ -141,6 +141,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _DragablePlayerWrapper(Object data) {
     Map<String, dynamic>? PlayerData = widget.model.fromObject(data);
     return Draggable<Object>(
+      maxSimultaneousDrags: widget.model.getOversCompletedById(PlayerData?["id"], teamName) == 4 ? 0 : 1,
       data: PlayerData?["id"],
       feedback: Container(
         alignment: Alignment.center,
