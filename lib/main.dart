@@ -219,7 +219,7 @@ class PandoraBox extends Model {
       }
       int val = _curBowlingOrder[newId];
       for (int i = newId; i < oldId; i++) {
-        _newBowlingOrder[i] = _curBowlingOrder[i - 1];
+        _newBowlingOrder[i + 1] = _curBowlingOrder[i];
       }
       _newBowlingOrder[oldId] = val;
       for (int i = oldId + 1; i < 20; i++) {
