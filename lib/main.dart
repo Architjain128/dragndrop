@@ -140,7 +140,7 @@ class PandoraBox extends Model {
           value = false;
         }
       } else {
-        if (_bowlingOrder1[overNumber] == idx && _bowlingOrder1[overNumber - 2] == idx) {
+        if (_bowlingOrder1[overNumber] == idx || _bowlingOrder1[overNumber - 2] == idx) {
           value = false;
         }
       }
