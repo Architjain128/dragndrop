@@ -95,28 +95,14 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
 
   Widget _oversBowledEmpty(int overNumber) {
     return Card(
-        child: Stack(children: [
-      ListTile(
+      child: ListTile(
         onTap: () {},
         title: Text("Select Bowler"),
         subtitle: Text("Drag from below listed bowlers"),
         leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
         trailing: Icon(Icons.sports_cricket_outlined),
       ),
-      // Container(
-      //   height: 30,
-      //   width: 35,
-      //   alignment: Alignment.center,
-      //   decoration: BoxDecoration(
-      //     color: Colors.blue,
-      //     borderRadius: BorderRadius.circular(15),
-      //   ),
-      //   child: Text(
-      //     overNumber.toString(),
-      //     style: TextStyle(color: Colors.white),
-      //   ),
-      // ),
-    ]));
+    );
   }
 
   Widget _oversBowledWrapper(int overNumber, int idx) {
