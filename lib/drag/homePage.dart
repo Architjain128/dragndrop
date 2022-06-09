@@ -1,5 +1,6 @@
 import 'package:dragAndDrop/main.dart';
 import 'package:flutter/material.dart';
+import './dataForNext.dart';
 import './bowlingOrder.dart';
 import '../data.dart';
 import 'dart:core';
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Center(child: Text("Bowling Order")),
       ),
       body: Center(
-        child: BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
+        child: _currentPageIndex == 2 ? DataForNextPage(model: this.model) : BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPageIndex,
