@@ -35,30 +35,9 @@ class _DataForNextPageState extends State<DataForNextPage> {
     return Stack(
       children: [
         SafeArea(
-          child: Column(
-            // children: [
-            //   Expanded(
-            //     child: Column(
-            children: [
-              Text(teamName1),
-              Expanded(
-                child: ListView(
-                  children: bowlingOrder1!.map((todo) => Text(todo.toString()) as Widget).toList(),
-                ),
-              ),
-              Divider(height: 2, color: Colors.black),
-              Text(teamName2),
-              Expanded(
-                child: ListView(
-                  children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
-                ),
-              ),
-              Text("Above are Player Ids of chosen bowling order"),
-            ],
-            //     ),
-            //   ),
-            // ],
-          ),
+          child: Container(
+            child:Text("NEXT SCREEN");
+          )
         )
       ],
     );
