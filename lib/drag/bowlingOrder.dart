@@ -84,11 +84,13 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           onTap: () {
             // widget.model.freeOver(overNumber, idx, teamName);
           },
-          contentPadding: EdgeInsets.only(right: 80),
           title: Text(player?["name"]),
           subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
           leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-          trailing: Icon(Icons.sports_cricket_outlined),
+          trailing: Container(
+            padding: EdgeInsets.only(right: 10),
+            child: Icon(Icons.sports_cricket_outlined),
+          ),
         ),
       ),
     );
