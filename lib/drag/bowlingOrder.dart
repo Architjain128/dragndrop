@@ -49,8 +49,11 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
     );
   }
 
-  void _onDrag(BuildContext context, DragUpdateDetails start) {
+  void _onDrag(BuildContext context, DragUpdateDetails update) {
     print("hi");
+    print(update);
+    // RenderBox box = context.findRenderBox();
+    // Offset localOffset = box.globalToLocal(update.globalPosition);
     // RenderBox box = context.findRenderObject();
     // Offset localOffset = box.globalToLocal(start.globalPosition);
   }
