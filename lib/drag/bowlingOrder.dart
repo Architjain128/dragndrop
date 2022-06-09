@@ -37,10 +37,12 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           child: Column(
             children: [
               Expanded(
-                  child: ListView(
-                padding: const EdgeInsets.all(8),
-                children: _listOfAllOvers(),
-              )),
+                child: _reorderableWrapper(),
+                //     child: ListView(
+                //   padding: const EdgeInsets.all(8),
+                //   children: _listOfAllOvers(),
+                // ),
+              ),
               _allPlayersComponenet(),
             ],
           ),
@@ -54,6 +56,17 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       widget.model.freeOver(overNumber, idx, teamName);
       return;
     }
+  }
+
+  Widget _reorderableWrapper() {
+    return ReorderableListView(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      children: _listOfAllOvers(),
+      onReorder: (int oldIndex, int newIndex) {
+        print(oldIndex);
+        print(newIndex);
+      },
+    );
   }
 
   Widget _oversBowled(int overNumber, int idx) {
