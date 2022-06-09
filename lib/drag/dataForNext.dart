@@ -48,6 +48,7 @@ class _DataForNextPageState extends State<DataForNextPage> {
                   children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
                 ),
               ),
+              Text("Above are Player Ids of chosen bowling order"),
             ],
             //     ),
             //   ),
