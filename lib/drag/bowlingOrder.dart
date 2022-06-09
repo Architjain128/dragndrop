@@ -80,6 +80,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         },
         onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
         child: ListTile(
+          key: Key((overNumber - 1).toString()),
           onTap: () {
             // widget.model.freeOver(overNumber, idx, teamName);
           },
