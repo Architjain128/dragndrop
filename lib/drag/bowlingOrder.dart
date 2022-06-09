@@ -64,8 +64,8 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       padding: EdgeInsets.all(10),
       children: _listOfAllOvers(),
       onReorder: (int oldIndex, int newIndex) {
-        print(oldIndex);
-        print(newIndex);
+        // print(oldIndex);
+        // print(newIndex);
         widget.model.afterReordering(oldIndex, newIndex, teamName);
       },
     );
@@ -150,7 +150,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         },
         onAccept: (int data) {
           if (widget.model.checkBoundaryConditions(overNumber, data, teamName)) {
-            print(data);
+            // print(data);
             idx = data;
             // print(widget.model.bowlingOrder(teamName));
             widget.model.updateBowlingOrder(overNumber, data, teamName);
