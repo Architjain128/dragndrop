@@ -1,16 +1,17 @@
+import 'package:dragAndDrop/main.dart';
 import 'package:flutter/material.dart';
+import './dataForNext.dart';
 import './bowlingOrder.dart';
 import '../data.dart';
 import 'dart:core';
 
 class MyHomePage extends StatefulWidget {
-  final List<Page> _pages = [
-    Page('Team1', Icons.person_outline),
-    Page('Team2', Icons.person_outline),
-  ];
-
-  MyHomePage({Key? key}) : super(key: key);
-
+  final PandoraBox model;
+  // final List<Page> _pages = [
+  //   Page("team1", Icons.person_outline),
+  //   Page("team2", Icons.person_outline),
+  // ];
+  MyHomePage({Key? key, required this.model}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -26,16 +27,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Page> teams = [
+      Page(widget.model.teamName1, Icons.person_outline),
+      Page(widget.model.teamName2, Icons.person_outline),
+      Page("Next", Icons.person_outline),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("Bowling Order")),
       ),
       body: Center(
-        child: BowlingOrderPage(teamName: NAME, allPlayers: TEAM1_SELECTED_PLAYERS),
+        child: _currentPageIndex == 2 ? DataForNextPage(model: widget.model) : BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPageIndex,
-        items: widget._pages
+        items: teams
             .map((Page page) => BottomNavigationBarItem(
                   icon: Icon(page.iconData),
                   label: page.title,
