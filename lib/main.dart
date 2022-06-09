@@ -186,4 +186,11 @@ class PandoraBox extends Model {
     oversCompleted(id, teamName, -1);
     notifyListeners();
   }
+
+  // void afterReordering(int oldId,int newId,String teamName){
+  //   List<int> _bowlingOrder = List<int>.filled(TOTAL_OVERS, 0, growable: false);
+  //   List<int> _curBowlingOrder = teamName==_teamName1?_bowlingOrder1:_bowlingOrder2;
+  //   if(oldId<newId)
+
+  // }
 }
