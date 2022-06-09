@@ -101,11 +101,13 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       // key: Key((overNumber - 1).toString()),
       child: ListTile(
         onTap: () {},
-        contentPadding: EdgeInsets.only(right: 10),
         title: Text("Select Bowler"),
         subtitle: Text("Drag from below listed bowlers"),
         leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-        trailing: Icon(Icons.sports_cricket_outlined),
+        trailing: Container(
+          margin: EdgeInsets.only(right: 10),
+          child: Icon(Icons.sports_cricket_outlined),
+        ),
       ),
     );
   }
