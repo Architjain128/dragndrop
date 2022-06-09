@@ -66,6 +66,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
       onReorder: (int oldIndex, int newIndex) {
         print(oldIndex);
         print(newIndex);
+        widget.model.afterReordering(oldIndex, newIndex, teamName);
       },
     );
   }

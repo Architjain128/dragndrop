@@ -187,10 +187,56 @@ class PandoraBox extends Model {
     notifyListeners();
   }
 
-  // void afterReordering(int oldId,int newId,String teamName){
-  //   List<int> _bowlingOrder = List<int>.filled(TOTAL_OVERS, 0, growable: false);
-  //   List<int> _curBowlingOrder = teamName==_teamName1?_bowlingOrder1:_bowlingOrder2;
-  //   if(oldId<newId)
+  bool isPossibleBowlingOrder(List<int> overs) {
+    for (int i = 1; i < 20; i++) {
+      if (overs[i] == overs[i - 1] && overs[i] != -1) {
+        return false;
+      }
+    }
+    return true;
+  }
 
-  // }
+  void afterReordering(int oldId, int newId, String teamName) {
+    List<int> _newBowlingOrder = List<int>.filled(TOTAL_OVERS, 0, growable: false);
+    List<int> _curBowlingOrder = teamName == _teamName1 ? _bowlingOrder1 : _bowlingOrder2;
+    if (oldId < newId) {
+      //goes down
+      for (int i = 0; i < oldId; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i];
+      }
+      int val = _curBowlingOrder[oldId];
+      for (int i = oldId; i < newId; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i + 1];
+      }
+      _newBowlingOrder[newId] = val;
+      for (int i = newId + 1; i < 20; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i];
+      }
+    } else if (oldId > newId) {
+      // goes up
+      for (int i = 0; i < newId; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i];
+      }
+      int val = _curBowlingOrder[newId];
+      for (int i = newId; i < oldId; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i - 1];
+      }
+      _newBowlingOrder[oldId] = val;
+      for (int i = oldId + 1; i < 20; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i];
+      }
+    } else {
+      for (int i = 0; i < 20; i++) {
+        _newBowlingOrder[i] = _curBowlingOrder[i];
+      }
+    }
+    if (isPossibleBowlingOrder(_newBowlingOrder)) {
+      if (teamName == _teamName1) {
+        _bowlingOrder1 = _newBowlingOrder;
+      } else {
+        _bowlingOrder2 = _newBowlingOrder;
+      }
+    }
+    notifyListeners();
+  }
 }
