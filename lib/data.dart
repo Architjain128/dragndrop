@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const TOTAL_OVERS = 20;
 const NAME = "Archit Jain";
-const TEAM_NAME1 = "Archit";
-const TEAM_NAME2 = "Jain";
+const TEAM_NAME1 = "Team Name 1";
+const TEAM_NAME2 = "Team Name 2";
 const EMPTY_PLAYER = {
   "id": -1,
   "skill_name": " ",
