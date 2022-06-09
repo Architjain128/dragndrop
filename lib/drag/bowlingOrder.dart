@@ -59,38 +59,24 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   Widget _oversBowled(int overNumber, int idx) {
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
     return Card(
-        elevation: 5,
-        color: Colors.black12,
-        child: Stack(children: [
-          GestureDetector(
-            onDoubleTap: () {
-              widget.model.freeOver(overNumber, idx, teamName);
-            },
-            onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
-            child: ListTile(
-              onTap: () {
-                // widget.model.freeOver(overNumber, idx, teamName);
-              },
-              title: Text(player?["name"]),
-              subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
-              leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
-              trailing: Icon(Icons.sports_cricket_outlined),
-            ),
-          ),
-          // Container(
-          //   height: 30,
-          //   width: 35,
-          //   alignment: Alignment.center,
-          //   decoration: BoxDecoration(
-          //     color: Colors.blue,
-          //     borderRadius: BorderRadius.circular(15),
-          //   ),
-          //   child: Text(
-          //     overNumber.toString(),
-          //     style: TextStyle(color: Colors.white),
-          //   ),
-          // ),
-        ]));
+      elevation: 5,
+      color: Colors.black12,
+      child: GestureDetector(
+        onDoubleTap: () {
+          widget.model.freeOver(overNumber, idx, teamName);
+        },
+        onHorizontalDragUpdate: (DragUpdateDetails update) => _onDrag(context, update, overNumber, idx),
+        child: ListTile(
+          onTap: () {
+            // widget.model.freeOver(overNumber, idx, teamName);
+          },
+          title: Text(player?["name"]),
+          subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
+          leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
+          trailing: Icon(Icons.sports_cricket_outlined),
+        ),
+      ),
+    );
   }
 
   Widget _oversBowledEmpty(int overNumber) {
