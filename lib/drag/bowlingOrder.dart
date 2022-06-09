@@ -105,6 +105,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
   }
 
   Widget _oversBowledWrapper(int overNumber, int idx) {
+    // int idx = -1;
     Map<String, dynamic>? player = widget.model.getPlayerbyId(idx, teamName);
     return DragTarget(builder: (
       BuildContext context,
@@ -122,7 +123,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         idx = data;
         // print(widget.model.bowlingOrder(teamName));
         widget.model.updateBowlingOrder(overNumber, data, teamName);
-        widget.model.oversCompleted(data, teamName, widget.model.getOversCompletedById(player?["id"], teamName)! + 1);
+        widget.model.oversCompleted(data, teamName, 1);
         // print(widget.model.bowlingOrder(teamName));
       }
     });
