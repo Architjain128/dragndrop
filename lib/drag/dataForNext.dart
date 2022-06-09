@@ -36,13 +36,17 @@ class _DataForNextPageState extends State<DataForNextPage> {
                 child: Column(
                   children: [
                     Text(teamName1),
-                    Column(
-                      children: bowlingOrder1!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                    Expanded(
+                      child: Column(
+                        children: bowlingOrder1!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                      ),
                     ),
                     Divider(height: 2, color: Colors.black),
                     Text(teamName2),
-                    Column(
-                      children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                    Expanded(
+                      child: Column(
+                        children: bowlingOrder2!.map((todo) => Text(todo.toString()) as Widget).toList(),
+                      ),
                     ),
                   ],
                 ),
