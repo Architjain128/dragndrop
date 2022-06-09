@@ -88,7 +88,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
           subtitle: Text(player?["sport_specific_keys"]["bowling"]["style"]),
           leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
           trailing: Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: EdgeInsets.only(right: 12),
             child: Icon(Icons.sports_cricket_outlined),
           ),
         ),
@@ -105,7 +105,7 @@ class _BowlingOrderPageState extends State<BowlingOrderPage> {
         subtitle: Text("Drag from below listed bowlers"),
         leading: CircleAvatar(backgroundImage: NetworkImage("https://picsum.photos/200")),
         trailing: Container(
-          margin: EdgeInsets.only(right: 10),
+          margin: EdgeInsets.only(right: 12),
           child: Icon(Icons.sports_cricket_outlined),
         ),
       ),
