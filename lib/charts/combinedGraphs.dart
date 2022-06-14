@@ -125,7 +125,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       primaryYAxis: NumericAxis(
         title: AxisTitle(
           text: 'Score',
-          textStyle: TextStyle(fontSize: 15),
+          textStyle: TextStyle(fontSize: 12),
         ),
         labelFormat: '{value}',
         axisLine: const AxisLine(width: 1),
