@@ -130,8 +130,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    // return _buildDefaultLineChart();
-    return Text("ji");
+    return _buildDefaultLineChart() == null ? Text("ji") : _buildDefaultLineChart();
   }
 
   /// Get the cartesian chart with default line series
@@ -161,7 +160,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       ),
       LineSeries<_ChartData, String>(
         animationDuration: 2500,
-        dataSource: chartData!,
+        dataSource: data,
         width: 2,
         name: 'England',
         xValueMapper: (_ChartData sales, _) => sales.lineName[1],
