@@ -167,7 +167,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       plotAreaBorderWidth: 0,
       title: ChartTitle(text: 'Inflation - Consumer price'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
-      primaryXAxis: CategoryAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, interval: 2, majorGridLines: const MajorGridLines(width: 0)),
+      primaryXAxis: CategoryAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, majorGridLines: const MajorGridLines(width: 0)),
       primaryYAxis: NumericAxis(labelFormat: '{value}%', axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(color: Colors.transparent)),
       series: _getDefaultLineSeries(),
       tooltipBehavior: TooltipBehavior(enable: true),
