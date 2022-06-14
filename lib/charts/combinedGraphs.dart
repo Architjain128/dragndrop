@@ -140,7 +140,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         enablePinching: true,
         zoomMode: ZoomMode.x,
         enablePanning: true,
-        enableMouseWheelZooming: false,
+        enableMouseWheelZooming: true,
       ),
     );
   }
