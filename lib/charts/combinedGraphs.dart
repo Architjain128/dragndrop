@@ -153,7 +153,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         animationDuration: 2500,
         dataSource: data,
         xValueMapper: (_ChartData sales, _) => sales.label,
-        yValueMapper: (_ChartData sales, _) => sales.line[0] as num,
+        yValueMapper: (_ChartData sales, _) => sales.line[0] as num?,
         width: 2,
         name: 'Archit',
         markerSettings: const MarkerSettings(isVisible: true),
@@ -164,7 +164,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         width: 2,
         name: 'Jain',
         xValueMapper: (_ChartData sales, _) => sales.label,
-        yValueMapper: (_ChartData sales, _) => sales.line[1] as num,
+        yValueMapper: (_ChartData sales, _) => sales.line[1] as num?,
         markerSettings: const MarkerSettings(isVisible: true),
       ),
     ];
