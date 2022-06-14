@@ -147,7 +147,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   }
 
   /// The method returns line series to chart.
-  List<LineSeries<_ChartData, String>> _getDefaultLineSeries() {
+  List<ChartSeries> _getDefaultLineSeries() {
     return <LineSeries<_ChartData, String>>[
       LineSeries<_ChartData, String>(
         animationDuration: 2500,
