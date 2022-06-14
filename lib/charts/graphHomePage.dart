@@ -31,7 +31,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pushNamed(context, '/'),
         ),
-        title: Text("Bowling Order"),
+        title: Text("Graphs"),
       ),
       body: Center(
         child: Text("HI"),
