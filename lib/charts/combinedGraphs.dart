@@ -187,7 +187,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
             animationDuration: 2500,
             dataSource: data,
             xValueMapper: (_ChartData sales, _) => sales.playerName,
-            yValueMapper: (_ChartData sales, _) => sales.values[0],
+            yValueMapper: (_ChartData sales, _) => sales.values[i],
             width: 2,
             name: categoryName[i],
             markerSettings: const MarkerSettings(isVisible: true),
