@@ -2,7 +2,7 @@ import 'package:dragAndDrop/main.dart';
 import 'package:flutter/material.dart';
 import '../data.dart';
 import 'dart:core';
-import "./combinedGraphs.dart"
+import "./combinedGraphs.dart";
 
 class GraphHomePage extends StatefulWidget {
   final PandoraBox model;
