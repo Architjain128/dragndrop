@@ -183,7 +183,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         chartAll.add(
           ColumnSeries<_ChartData, String>(
             width: 0.8,
-            spacing: 0.2,
+            spacing: 0.1,
             dataSource: data,
             xValueMapper: (_ChartData sales, _) => sales.playerName,
             yValueMapper: (_ChartData sales, _) => sales.values[i],
