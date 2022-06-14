@@ -18,112 +18,140 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   List<_ChartData>? chartData;
   TooltipBehavior? _tooltipBehavior;
   List<_ChartData> data = [];
+  List<String> category = [];
+  List<String> categoryName = [];
   @override
   void initState() {
     _columnWidth = 0.8;
     _columnSpacing = 0.2;
     _tooltipBehavior = TooltipBehavior(enable: true);
+    category = [
+      "bar",
+      "bar",
+      "bar",
+      "line",
+      "line",
+      "line"
+    ];
+    categoryName = [
+      "b1",
+      "b2",
+      "b3",
+      "l1",
+      "l2",
+      "l3"
+    ];
     data = <_ChartData>[
-      _ChartData("a", [
-        1,
-        2,
-        1.5,
-        2.3,
-        1.2
-      ], [
+      _ChartData("MSD", [
         10,
-        20,
-        15,
-        23,
-        12
+        21,
+        13,
+        100,
+        80,
+        62
       ], [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "bar",
+        "bar",
+        "bar",
+        "line",
+        "line",
+        "line"
       ], [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e"
+        "b1",
+        "b2",
+        "b3",
+        "l1",
+        "l2",
+        "l3"
       ]),
-      _ChartData("b", [
-        1,
-        2,
-        1.5,
-        2.3,
-        1.2
-      ], [
-        10,
+      _ChartData("kohli", [
+        11,
         20,
-        15,
-        23,
-        12
+        12,
+        95,
+        81,
+        60
       ], [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "bar",
+        "bar",
+        "bar",
+        "line",
+        "line",
+        "line"
       ], [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e"
+        "b1",
+        "b2",
+        "b3",
+        "l1",
+        "l2",
+        "l3"
       ]),
-      _ChartData("c", [
-        1,
-        2,
-        1.5,
-        2.3,
-        1.2
-      ], [
+      _ChartData("Rohit", [
         10,
-        20,
-        15,
-        23,
-        12
+        21,
+        13,
+        100,
+        80,
+        69
       ], [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "bar",
+        "bar",
+        "bar",
+        "line",
+        "line",
+        "line"
       ], [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e"
+        "b1",
+        "b2",
+        "b3",
+        "l1",
+        "l2",
+        "l3"
       ]),
-      _ChartData("d", [
-        1,
-        2,
-        1.5,
-        2.3,
-        1.2
-      ], [
-        10,
+      _ChartData("Dhawan", [
+        11,
         20,
-        15,
-        23,
-        12
+        14,
+        90,
+        84,
+        60
       ], [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "bar",
+        "bar",
+        "bar",
+        "line",
+        "line",
+        "line"
       ], [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e"
-      ])
+        "b1",
+        "b2",
+        "b3",
+        "l1",
+        "l2",
+        "l3"
+      ]),
+      _ChartData("Rahane", [
+        10,
+        21,
+        13,
+        100,
+        80,
+        63
+      ], [
+        "bar",
+        "bar",
+        "bar",
+        "line",
+        "line",
+        "line"
+      ], [
+        "b1",
+        "b2",
+        "b3",
+        "l1",
+        "l2",
+        "l3"
+      ]),
     ];
     super.initState();
   }
@@ -140,7 +168,6 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       title: ChartTitle(text: 'Inflation - Consumer price'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, interval: 2, majorGridLines: const MajorGridLines(width: 0)),
-      // primaryXAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, interval: 2, majorGridLines: const MajorGridLines(width: 0)),
       primaryYAxis: NumericAxis(labelFormat: '{value}%', axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(color: Colors.transparent)),
       series: _getDefaultLineSeries(),
       tooltipBehavior: TooltipBehavior(enable: true),
@@ -149,26 +176,46 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 
   /// The method returns line series to chart.
   List<ChartSeries> _getDefaultLineSeries() {
-    return <LineSeries<_ChartData, String>>[
-      LineSeries<_ChartData, String>(
-        animationDuration: 2500,
-        dataSource: data,
-        xValueMapper: (_ChartData sales, _) => sales.label,
-        yValueMapper: (_ChartData sales, _) => sales.line[0],
-        width: 2,
-        name: 'Archit',
-        markerSettings: const MarkerSettings(isVisible: true),
-      ),
-      LineSeries<_ChartData, String>(
-        animationDuration: 2500,
-        dataSource: data,
-        width: 2,
-        name: 'Jain',
-        xValueMapper: (_ChartData sales, _) => sales.label,
-        yValueMapper: (_ChartData sales, _) => sales.line[1],
-        markerSettings: const MarkerSettings(isVisible: true),
-      ),
-    ];
+    List<ChartSeries> chartAll = [];
+    for (var i = 0; i < category.length; i++) {
+      if (category[i] == "bar") {
+        // chartAll.add();
+      }
+      if (category[i] == "line") {
+        chartAll.add(
+          LineSeries<_ChartData, String>(
+            animationDuration: 2500,
+            dataSource: data,
+            xValueMapper: (_ChartData sales, _) => sales.playerName,
+            yValueMapper: (_ChartData sales, _) => sales.values[0],
+            width: 2,
+            name: categoryName[i],
+            markerSettings: const MarkerSettings(isVisible: true),
+          ),
+        );
+      }
+    }
+    return chartAll;
+    // return <LineSeries<_ChartData, String>>[
+    //   LineSeries<_ChartData, String>(
+    //     animationDuration: 2500,
+    //     dataSource: data,
+    //     xValueMapper: (_ChartData sales, _) => sales.playerName,
+    //     yValueMapper: (_ChartData sales, _) => sales.values[0],
+    //     width: 2,
+    //     name: categoryName[i],
+    //     markerSettings: const MarkerSettings(isVisible: true),
+    //   ),
+    //   LineSeries<_ChartData, String>(
+    //     animationDuration: 2500,
+    //     dataSource: data,
+    //     width: 2,
+    //     name: 'Jain',
+    //     xValueMapper: (_ChartData sales, _) => sales.playerName,
+    //     yValueMapper: (_ChartData sales, _) => sales.values[1],
+    //     markerSettings: const MarkerSettings(isVisible: true),
+    //   ),
+    // ];
   }
 
   // @override
@@ -216,10 +263,9 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 }
 
 class _ChartData {
-  _ChartData(this.label, this.bar, this.line, this.barName, this.lineName);
-  final String label;
-  final List<double> bar;
-  final List<double> line;
-  final List<String> barName;
-  final List<String> lineName;
+  _ChartData(this.playerName, this.values, this.category, this.categoryName);
+  final String? playerName;
+  final List<double> values;
+  final List<String> category;
+  final List<String> categoryName;
 }
