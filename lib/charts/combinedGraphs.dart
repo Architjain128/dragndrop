@@ -175,8 +175,8 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   }
 
   /// The method returns line series to chart.
-  List<ChartSeries> _getDefaultLineSeries() {
-    List<ChartSeries> chartAll = [];
+  List<CartesianSeries> _getDefaultLineSeries() {
+    List<CartesianSeries> chartAll = [];
     for (var i = 0; i < category.length; i++) {
       if (category[i] == "bar") {
         chartAll.add(
