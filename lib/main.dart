@@ -5,6 +5,8 @@ import './drag/homePage.dart';
 import 'dart:convert';
 import 'dart:core';
 import '../data.dart';
+import './navigation/landingPage.dart';
+import './charts/graphHomePage.dart';
 
 void main() => runApp(MyApp(model: PandoraBox()));
 
@@ -21,14 +23,34 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        routes: {
+          // Main initial route
+          '/': (context) => MainPage(),
+          // Second route
+          '/bowling': (context) => ScopedModelDescendant<PandoraBox>(
+                builder: (context, child, model) {
+                  return MyHomePage(
+                    model: model,
+                  );
+                },
+              ),
+          '/graph': (context) => ScopedModelDescendant<PandoraBox>(
+                builder: (context, child, model) {
+                  return GraphHomePage(
+                    model: model,
+                  );
+                },
+              ),
+        },
+        initialRoute: '/',
         // home: MyHomePage(),
-        home: ScopedModelDescendant<PandoraBox>(
-          builder: (context, child, model) {
-            return MyHomePage(
-              model: model,
-            );
-          },
-        ),
+        // home: ScopedModelDescendant<PandoraBox>(
+        //   builder: (context, child, model) {
+        //     return MyHomePage(
+        //       model: model,
+        //     );
+        //   },
+        // ),
       ),
     );
   }

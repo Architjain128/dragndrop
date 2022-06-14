@@ -34,7 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Bowling Order")),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pushNamed(context, '/'),
+        ),
+        title: Text("Bowling Order"),
       ),
       body: Center(
         child: _currentPageIndex == 2 ? DataForNextPage(model: widget.model) : BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
