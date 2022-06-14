@@ -118,18 +118,18 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       title: ChartTitle(text: 'Graphical View'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(
-        title: AxisTitle(
-          text: 'Players',
-          textStyle: TextStyle(fontSize: 15),
-        ),
+        // title: AxisTitle(
+        //   text: 'Players',
+        //   textStyle: TextStyle(fontSize: 15),
+        // ),
         axisLine: const AxisLine(width: 1),
         labelRotation: -90,
       ),
       primaryYAxis: NumericAxis(
-        title: AxisTitle(
-          text: 'Score',
-          textStyle: TextStyle(fontSize: 12),
-        ),
+        // title: AxisTitle(
+        //   text: 'Score',
+        //   textStyle: TextStyle(fontSize: 12),
+        // ),
         labelFormat: '{value}',
         axisLine: const AxisLine(width: 1),
         majorTickLines: const MajorTickLines(color: Colors.transparent),
