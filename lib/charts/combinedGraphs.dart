@@ -20,6 +20,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   List<_ChartData> data = [];
   List<String> category = [];
   List<String> categoryName = [];
+
   @override
   void initState() {
     _columnWidth = 0.8;
@@ -104,7 +105,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildDefaultLineChart() == null ? Text("ji") : _buildDefaultLineChart();
+    return _buildDefaultLineChart() == null ? Text("Error") : _buildDefaultLineChart();
   }
 
   /// Get the cartesian chart with default line series
@@ -118,6 +119,21 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       primaryYAxis: NumericAxis(labelFormat: '{value}', axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(color: Colors.transparent)),
       series: _getDefaultLineSeries(),
       tooltipBehavior: TooltipBehavior(enable: true),
+      trackballBehavior: TrackballBehavior(
+        enable: true,
+        markerSettings: TrackballMarkerSettings(
+          markerVisibility: _showMarker ? TrackballVisibilityMode.visible : TrackballVisibilityMode.hidden,
+          height: 10,
+          width: 10,
+          borderWidth: 1,
+        ),
+        hideDelay: duration * 1000,
+        activationMode: ActivationMode.singleTap,
+        tooltipAlignment: ChartAlignment.center,
+        tooltipDisplayMode: TrackballDisplayMode.groupAllPoints,
+        tooltipSettings: InteractiveTooltip(format: _mode != TrackballDisplayMode.groupAllPoints ? 'series.name : point.y' : null, canShowMarker: canShowMarker),
+        shouldAlwaysShow: showAlways,
+      ),
     );
   }
 
