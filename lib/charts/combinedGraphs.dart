@@ -118,7 +118,10 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       title: ChartTitle(text: 'Graphical View'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(
-        title: AxisTitle(text: 'Players'),
+        title: AxisTitle(
+          text: 'Players',
+          textStyle: TextStyle(fontSize: 12),
+        ),
         axisLine: const AxisLine(width: 1),
         labelRotation: -90,
       ),
