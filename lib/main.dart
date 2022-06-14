@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   );
                 },
               ),
-          'graph': (context) => ScopedModelDescendant<PandoraBox>(
+          '/graph': (context) => ScopedModelDescendant<PandoraBox>(
                 builder: (context, child, model) {
                   return GraphHomePage(
                     model: model,
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                 },
               ),
         },
-        initialRoute: '/',
+        initialRoute: '/graph',
         // home: MyHomePage(),
         // home: ScopedModelDescendant<PandoraBox>(
         //   builder: (context, child, model) {
