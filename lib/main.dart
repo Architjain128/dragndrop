@@ -5,6 +5,7 @@ import './drag/homePage.dart';
 import 'dart:convert';
 import 'dart:core';
 import '../data.dart';
+import './navigation/landingPage.dart';
 
 void main() => runApp(MyApp(model: PandoraBox()));
 
@@ -21,6 +22,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        routes: {
+          // Main initial route
+          '/': (context) => MainPage(),
+          // Second route
+          '/bowl': (context) => SecondPage(),
+        },
+        initialRoute: '/',
         // home: MyHomePage(),
         home: ScopedModelDescendant<PandoraBox>(
           builder: (context, child, model) {
