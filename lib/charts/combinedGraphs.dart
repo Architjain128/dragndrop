@@ -118,7 +118,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       title: ChartTitle(text: 'Graphical View'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
       primaryXAxis: CategoryAxis(
-        multiLevelLabelStyle: MultiLevelLabelStyle(borderWidth: 1, borderType: MultiLevelBorderType.rectangle),
+        multiLevelLabelStyle: MultiLevelLabelStyle(borderWidth: 1, borderType: MultiLevelBorderType.squareBrace),
         multiLevelLabels: [
           CategoricalMultiLevelLabel(start: data[0].playerName, end: data[data.length - 1].playerName, text: 'Players')
         ],
