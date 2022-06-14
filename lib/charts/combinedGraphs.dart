@@ -136,6 +136,12 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         tooltipSettings: InteractiveTooltip(format: _mode != TrackballDisplayMode.groupAllPoints ? 'series.name : point.y' : null, canShowMarker: true),
         shouldAlwaysShow: false,
       ),
+      zoomPanBehavior: ZoomPanBehavior(
+        enablePinching: true,
+        zoomMode: ZoomMode.x,
+        enablePanning: true,
+        enableMouseWheelZooming: false,
+      ),
     );
   }
 

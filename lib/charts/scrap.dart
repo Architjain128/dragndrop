@@ -1,117 +1,91 @@
-/// Package imports
+// import 'dart:async';
+
+/// Package import
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 /// Chart import
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-/// Local imports
-
-/// State class the chart with default trackball.
-class _DefaultTrackballState extends SampleViewState {
-  _DefaultTrackballState();
-  late double duration;
-  late bool showAlways;
-  late bool canShowMarker;
-  late List<String> _modeList;
-  late String _selectedMode;
-  late TrackballDisplayMode _mode;
-  late List<String> _alignmentList;
-  late String _tooltipAlignment;
-  late bool _showMarker;
-  late ChartAlignment _alignment;
-  late List<ChartSampleData> chartData;
-
+/// State class of the chart with pinch zooming.
+class _DefaultPanningState extends SampleViewState {
+  _DefaultPanningState();
+  late List<String> _zoomModeTypeList;
+  late String _selectedModeType;
+  late ZoomMode _zoomModeType;
+  late bool _enableAnchor;
+  late GlobalKey<State> chartKey;
+  late num left, top;
+  late List<ChartSampleData> randomData;
   @override
   void initState() {
-    _modeList = <String>[
-      'floatAllPoints',
-      'groupAllPoints',
-      'nearestPoint'
+    _zoomModeTypeList = <String>[
+      'x',
+      'y',
+      'xy'
     ].toList();
-    _alignmentList = <String>[
-      'center',
-      'far',
-      'near'
-    ].toList();
-    duration = 2;
-    showAlways = false;
-    canShowMarker = true;
-    _selectedMode = 'floatAllPoints';
-    _mode = TrackballDisplayMode.floatAllPoints;
-    _tooltipAlignment = 'center';
-    _showMarker = true;
-    _alignment = ChartAlignment.center;
+    _selectedModeType = 'x';
+    _zoomModeType = ZoomMode.x;
+    chartKey = GlobalKey<State>();
+    _enableAnchor = true;
+    left = 0;
+    top = 0;
+    getDateTimeData();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildDefaultTrackballChart();
+    return Stack(children: <Widget>[
+      _buildDefaultPanningChart(),
+    ]);
   }
 
-  /// Returns the cartesian chart with default trackball.
-  SfCartesianChart _buildDefaultTrackballChart() {
+  /// Returns the cartesian chart with pinch zoomings.
+  SfCartesianChart _buildDefaultPanningChart() {
     return SfCartesianChart(
-      title: ChartTitle(text: !isCardView ? 'Average sales per person' : ''),
-      plotAreaBorderWidth: 0,
-      primaryXAxis: DateTimeAxis(interval: 1, intervalType: DateTimeIntervalType.years, dateFormat: DateFormat.y(), majorGridLines: const MajorGridLines(width: 0), edgeLabelPlacement: EdgeLabelPlacement.shift),
-      primaryYAxis: NumericAxis(title: AxisTitle(text: !isCardView ? 'Revenue' : ''), axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(width: 0)),
-      series: _getDefaultTrackballSeries(),
+        key: chartKey,
+        plotAreaBorderWidth: 0,
+        primaryXAxis: DateTimeAxis(name: 'X-Axis', majorGridLines: const MajorGridLines(width: 0)),
+        primaryYAxis: NumericAxis(axisLine: const AxisLine(width: 0), anchorRangeToVisiblePoints: _enableAnchor, majorTickLines: const MajorTickLines(size: 0)),
+        series: getDefaultPanningSeries(),
+        zoomPanBehavior: ZoomPanBehavior(
 
-      /// To set the track ball as true and customized trackball behaviour.
-      trackballBehavior: TrackballBehavior(
-        enable: true,
-        markerSettings: TrackballMarkerSettings(
-          markerVisibility: _showMarker ? TrackballVisibilityMode.visible : TrackballVisibilityMode.hidden,
-          height: 10,
-          width: 10,
-          borderWidth: 1,
-        ),
-        hideDelay: duration * 1000,
-        activationMode: ActivationMode.singleTap,
-        tooltipAlignment: ChartAlignment.center,
-        tooltipDisplayMode: TrackballDisplayMode.groupAllPoints,
-        tooltipSettings: InteractiveTooltip(format: _mode != TrackballDisplayMode.groupAllPoints ? 'series.name : point.y' : null, canShowMarker: canShowMarker),
-        shouldAlwaysShow: showAlways,
-      ),
-    );
+            /// To enable the pinch zooming as true.
+            enablePinching: true,
+            zoomMode: ZoomMode.x,
+            enablePanning: true,
+            enableMouseWheelZooming: model.isWebFullView ? true : false));
   }
 
-  /// Method to update the trackball display mode in the chart on change.
-  void onModeTypeChange(String item) {
-    _selectedMode = item;
-    if (_selectedMode == 'floatAllPoints') {
-      _mode = TrackballDisplayMode.floatAllPoints;
-    }
-    if (_selectedMode == 'groupAllPoints') {
-      _mode = TrackballDisplayMode.groupAllPoints;
-    }
-    if (_selectedMode == 'nearestPoint') {
-      _mode = TrackballDisplayMode.nearestPoint;
-    }
-    if (_selectedMode == 'none') {
-      _mode = TrackballDisplayMode.none;
-    }
-    setState(() {
-      /// update the trackball display type changes
-    });
+  /// Returns the list of chart series
+  /// which need to render on the chart with pinch zooming.
+  List<AreaSeries<ChartSampleData, DateTime>> getDefaultPanningSeries() {
+    return <AreaSeries<ChartSampleData, DateTime>>[
+      AreaSeries<ChartSampleData, DateTime>(
+          dataSource: randomData,
+          xValueMapper: (ChartSampleData sales, _) => sales.x as DateTime,
+          yValueMapper: (ChartSampleData sales, _) => sales.y,
+          gradient: LinearGradient(colors: <Color>[
+            Colors.teal[50]!,
+            Colors.teal[200]!,
+            Colors.teal
+          ], stops: const <double>[
+            0.0,
+            0.4,
+            1.0
+          ], begin: Alignment.bottomCenter, end: Alignment.topCenter))
+    ];
   }
 
-  /// Method to update the chart alignment for tooltip in the chart on change.
-  void onAlignmentChange(String item) {
-    _tooltipAlignment = item;
-    if (_tooltipAlignment == 'center') {
-      _alignment = ChartAlignment.center;
-    }
-    if (_tooltipAlignment == 'far') {
-      _alignment = ChartAlignment.far;
-    }
-    if (_tooltipAlignment == 'near') {
-      _alignment = ChartAlignment.near;
-    }
-    setState(() {
-      /// update the tooltip alignment changes
-    });
+  /// Method to get chart data points.
+  void getDateTimeData() {
+    randomData = <ChartSampleData>[];
+  }
+
+  /// Method to update the selected zoom type in the chart on change.
+
+  void _enableRangeCalculation(bool enableZoom) {
+    _enableAnchor = enableZoom;
+    setState(() {});
   }
 }
