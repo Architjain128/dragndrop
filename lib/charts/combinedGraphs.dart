@@ -120,9 +120,9 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       primaryXAxis: CategoryAxis(title: AxisTitle(text: 'Players')),
       // primaryXAxis: CategoryAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, majorGridLines: const MajorGridLines(width: 0)),
       primaryYAxis: NumericAxis(
-        title: AxisTitle(text: 'Players'),
+        title: AxisTitle(text: 'Score'),
         labelFormat: '{value}',
-        axisLine: const AxisLine(width: 0),
+        axisLine: const AxisLine(width: 1),
         majorTickLines: const MajorTickLines(color: Colors.transparent),
       ),
       series: _getDefaultLineSeries(),
