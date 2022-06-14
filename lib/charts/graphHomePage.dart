@@ -33,10 +33,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
         title: Text("Graphs"),
       ),
       body: Center(
-        child: Row(children: [
-          CombinedChartPage(),
-          Text("hi"),
-        ]),
+        child: CombinedChartPage(),
       ),
     );
   }
