@@ -182,12 +182,14 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       if (category[i] == "bar") {
         chartAll.add(
           ColumnSeries<_ChartData, String>(
+            width: 0.8,
+            spacing: 0.2,
             dataSource: data,
             xValueMapper: (_ChartData sales, _) => sales.playerName,
             yValueMapper: (_ChartData sales, _) => sales.values[i],
             name: categoryName[i],
-            width: 2,
-            animationDuration: 2500,
+            // width: 2,
+            // animationDuration: 2500,
           ),
         );
       }
