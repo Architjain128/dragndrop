@@ -188,6 +188,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
             xValueMapper: (_ChartData sales, _) => sales.playerName,
             yValueMapper: (_ChartData sales, _) => sales.values[i],
             name: categoryName[i],
+            animationDuration: 2500,
           ),
         );
       }
