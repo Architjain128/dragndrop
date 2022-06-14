@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pushNamed(context, '/'),
         ),
-        title: Center(child: Text("Bowling Order")),
+        title: Text("Bowling Order"),
       ),
       body: Center(
         child: _currentPageIndex == 2 ? DataForNextPage(model: widget.model) : BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
