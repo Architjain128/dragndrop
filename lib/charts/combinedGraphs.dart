@@ -122,12 +122,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         axisLine: const AxisLine(width: 1),
         labelRotation: -90,
       ),
-      primaryYAxis: NumericAxis(
-        title: AxisTitle(text: 'Score'),
-        labelFormat: '{value}',
-        axisLine: const AxisLine(width: 1),
-        majorTickLines: const MajorTickLines(color: Colors.transparent),
-      ),
+      primaryYAxis: NumericAxis(title: AxisTitle(text: 'Score'), labelFormat: '{value}', axisLine: const AxisLine(width: 1), majorTickLines: const MajorTickLines(color: Colors.transparent), labelStyle: TextStyle(fontSize: 20)),
       series: _getDefaultLineSeries(),
       trackballBehavior: TrackballBehavior(
         enable: true,
