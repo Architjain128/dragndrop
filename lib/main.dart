@@ -26,7 +26,13 @@ class MyApp extends StatelessWidget {
           // Main initial route
           '/': (context) => MainPage(),
           // Second route
-          '/bowl': (context) => SecondPage(),
+          '/bowl': (context) => ScopedModelDescendant<PandoraBox>(
+                builder: (context, child, model) {
+                  return MyHomePage(
+                    model: model,
+                  );
+                },
+              ),
         },
         initialRoute: '/',
         // home: MyHomePage(),
