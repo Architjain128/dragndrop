@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:core';
 import '../data.dart';
 import './navigation/landingPage.dart';
+import './charts/graphHomePage.dart';
 
 void main() => runApp(MyApp(model: PandoraBox()));
 
@@ -35,7 +36,9 @@ class MyApp extends StatelessWidget {
               ),
           'graph': (context) => ScopedModelDescendant<PandoraBox>(
                 builder: (context, child, model) {
-                  return Text("HI");
+                  return GraphHomePage(
+                    model: model,
+                  );
                 },
               ),
         },
