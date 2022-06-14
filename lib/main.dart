@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
         },
         initialRoute: '/',
         // home: MyHomePage(),
-        home: ScopedModelDescendant<PandoraBox>(
-          builder: (context, child, model) {
-            return MyHomePage(
-              model: model,
-            );
-          },
-        ),
+        // home: ScopedModelDescendant<PandoraBox>(
+        //   builder: (context, child, model) {
+        //     return MyHomePage(
+        //       model: model,
+        //     );
+        //   },
+        // ),
       ),
     );
   }
