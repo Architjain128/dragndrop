@@ -11,13 +11,123 @@ class CombinedChartPage extends StatefulWidget {
 }
 
 class _CombinedChartPageState extends State<CombinedChartPage> {
-  List<_SalesData> data = [
-    _SalesData('Jan', 35),
-    _SalesData('Feb', 28),
-    _SalesData('Mar', 34),
-    _SalesData('Apr', 32),
-    _SalesData('May', 40)
-  ];
+  _CombinedChartPageState();
+
+  late double _columnWidth;
+  late double _columnSpacing;
+  List<_ChartData>? chartData;
+  TooltipBehavior? _tooltipBehavior;
+  List<_ChartData> data = [];
+  @override
+  void initState() {
+    _columnWidth = 0.8;
+    _columnSpacing = 0.2;
+    _tooltipBehavior = TooltipBehavior(enable: true);
+    data = <_ChartData>[
+      _ChartData([
+        1,
+        2,
+        1.5,
+        2.3,
+        1.2
+      ], [
+        10,
+        20,
+        15,
+        23,
+        12
+      ], [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ], [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]),
+      _ChartData([
+        1,
+        2,
+        1.5,
+        2.3,
+        1.2
+      ], [
+        10,
+        20,
+        15,
+        23,
+        12
+      ], [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ], [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]),
+      _ChartData([
+        1,
+        2,
+        1.5,
+        2.3,
+        1.2
+      ], [
+        10,
+        20,
+        15,
+        23,
+        12
+      ], [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ], [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ]),
+      _ChartData([
+        1,
+        2,
+        1.5,
+        2.3,
+        1.2
+      ], [
+        10,
+        20,
+        15,
+        23,
+        12
+      ], [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ], [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ])
+    ];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -25,19 +135,20 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       SfCartesianChart(
           primaryXAxis: CategoryAxis(),
           // Chart title
-          title: ChartTitle(text: 'Half yearly sales analysis'),
+          title: ChartTitle(text: 'temp'),
           // Enable legend
           legend: Legend(isVisible: true),
           // Enable tooltip
           tooltipBehavior: TooltipBehavior(enable: true),
-          series: <ChartSeries<_SalesData, String>>[
-            LineSeries<_SalesData, String>(
-                dataSource: data,
-                xValueMapper: (_SalesData sales, _) => sales.year,
-                yValueMapper: (_SalesData sales, _) => sales.sales,
-                name: 'Sales',
-                // Enable data label
-                dataLabelSettings: DataLabelSettings(isVisible: true))
+          series: <ChartSeries<_ChartData, String>>[
+            LineSeries<_ChartData, String>(
+              dataSource: data,
+              xValueMapper: (_ChartData sales, _) => sales.lineName[0],
+              yValueMapper: (_ChartData sales, _) => sales.line[0],
+              name: 'Sales',
+              // Enable data label
+              dataLabelSettings: DataLabelSettings(isVisible: true),
+            )
           ]),
       // Expanded(
       //   child: Padding(
@@ -60,9 +171,10 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   }
 }
 
-class _SalesData {
-  _SalesData(this.year, this.sales);
-
-  final String year;
-  final double sales;
+class _ChartData {
+  _ChartData(this.bar, this.line, this.barName, this.lineName);
+  final List<double> bar;
+  final List<double> line;
+  final List<String> barName;
+  final List<String> lineName;
 }
