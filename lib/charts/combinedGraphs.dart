@@ -24,7 +24,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
     _columnSpacing = 0.2;
     _tooltipBehavior = TooltipBehavior(enable: true);
     data = <_ChartData>[
-      _ChartData([
+      _ChartData("a", [
         1,
         2,
         1.5,
@@ -49,7 +49,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         "d",
         "e"
       ]),
-      _ChartData([
+      _ChartData("b", [
         1,
         2,
         1.5,
@@ -74,7 +74,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         "d",
         "e"
       ]),
-      _ChartData([
+      _ChartData("c", [
         1,
         2,
         1.5,
@@ -99,7 +99,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         "d",
         "e"
       ]),
-      _ChartData([
+      _ChartData("d", [
         1,
         2,
         1.5,
@@ -152,7 +152,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       LineSeries<_ChartData, String>(
         animationDuration: 2500,
         dataSource: data,
-        xValueMapper: (_ChartData sales, _) => sales.lineName[0],
+        xValueMapper: (_ChartData sales, _) => sales.label,
         yValueMapper: (_ChartData sales, _) => sales.line[0],
         width: 2,
         name: 'Archit',
@@ -163,7 +163,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         dataSource: data,
         width: 2,
         name: 'Jain',
-        xValueMapper: (_ChartData sales, _) => sales.lineName[1],
+        xValueMapper: (_ChartData sales, _) => sales.label,
         yValueMapper: (_ChartData sales, _) => sales.line[1],
         markerSettings: const MarkerSettings(isVisible: true),
       ),
@@ -215,7 +215,8 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 }
 
 class _ChartData {
-  _ChartData(this.bar, this.line, this.barName, this.lineName);
+  _ChartData(this.label, this.bar, this.line, this.barName, this.lineName);
+  final String label;
   final List<double> bar;
   final List<double> line;
   final List<String> barName;
