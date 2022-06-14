@@ -36,7 +36,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.7,
               width: MediaQuery.of(context).size.width,
               child: CombinedChartPage(),
             ),
