@@ -25,11 +25,6 @@ class _GraphHomePageState extends State<GraphHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Page> teams = [
-      Page(widget.model.teamName1, Icons.person_outline),
-      Page(widget.model.teamName2, Icons.person_outline),
-      Page("Next", Icons.person_outline),
-    ];
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -39,24 +34,8 @@ class _GraphHomePageState extends State<GraphHomePage> {
         title: Text("Bowling Order"),
       ),
       body: Center(
-        child: _currentPageIndex == 2 ? DataForNextPage(model: widget.model) : BowlingOrderPage(model: widget.model, teamNumber: _currentPageIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentPageIndex,
-        items: teams
-            .map((Page page) => BottomNavigationBarItem(
-                  icon: Icon(page.iconData),
-                  label: page.title,
-                ))
-            .toList(),
-        onTap: _openPage,
+        child: Text("HI"),
       ),
     );
   }
-}
-
-class Page {
-  final String title;
-  final IconData iconData;
-  Page(this.title, this.iconData);
 }
