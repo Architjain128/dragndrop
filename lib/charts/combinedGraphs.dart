@@ -20,12 +20,15 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   List<_ChartData> data = [];
   List<String> category = [];
   List<String> categoryName = [];
+  late TrackballDisplayMode _mode;
 
   @override
   void initState() {
     _columnWidth = 0.8;
     _columnSpacing = 0.2;
     _tooltipBehavior = TooltipBehavior(enable: true);
+    _mode = TrackballDisplayMode.floatAllPoints;
+
     category = [
       "bar",
       "bar",
@@ -122,17 +125,17 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       trackballBehavior: TrackballBehavior(
         enable: true,
         markerSettings: TrackballMarkerSettings(
-          markerVisibility: _showMarker ? TrackballVisibilityMode.visible : TrackballVisibilityMode.hidden,
+          markerVisibility: TrackballVisibilityMode.visible,
           height: 10,
           width: 10,
           borderWidth: 1,
         ),
-        hideDelay: duration * 1000,
+        hideDelay: 2000,
         activationMode: ActivationMode.singleTap,
         tooltipAlignment: ChartAlignment.center,
         tooltipDisplayMode: TrackballDisplayMode.groupAllPoints,
-        tooltipSettings: InteractiveTooltip(format: _mode != TrackballDisplayMode.groupAllPoints ? 'series.name : point.y' : null, canShowMarker: canShowMarker),
-        shouldAlwaysShow: showAlways,
+        tooltipSettings: InteractiveTooltip(format: _mode != TrackballDisplayMode.groupAllPoints ? 'series.name : point.y' : null, canShowMarker: true),
+        shouldAlwaysShow: false,
       ),
     );
   }
