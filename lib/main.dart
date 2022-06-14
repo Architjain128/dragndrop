@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                 },
               ),
         },
-        initialRoute: '/graph',
+        initialRoute: '/',
         // home: MyHomePage(),
         // home: ScopedModelDescendant<PandoraBox>(
         //   builder: (context, child, model) {
