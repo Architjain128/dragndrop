@@ -12,11 +12,11 @@ class MainPage extends StatelessWidget {
               // Navigate using declared route name
               ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/graph'),
-                child: Text('Navigate using routes'),
+                child: Text('Navigate to graph page'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/bowling'),
-                child: Text('Navigate using routes'),
+                child: Text('Navigate to bowling order page'),
               ),
               // Navigate using simple push method
             ],

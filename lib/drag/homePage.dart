@@ -34,6 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pushNamed(context, '/'),
+        ),
         title: Center(child: Text("Bowling Order")),
       ),
       body: Center(
