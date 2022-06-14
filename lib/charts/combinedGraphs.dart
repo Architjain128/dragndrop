@@ -179,7 +179,16 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
     List<ChartSeries> chartAll = [];
     for (var i = 0; i < category.length; i++) {
       if (category[i] == "bar") {
-        // chartAll.add();
+        chartAll.add(
+          ColumnSeries<_ChartData, String>(
+            dataSource: data,
+            xValueMapper: (_ChartData sales, _) => sales.playerName,
+            yValueMapper: (_ChartData sales, _) => sales.values[i],
+            name: categoryName[i],
+            width: 2,
+            animationDuration: 2500,
+          ),
+        );
       }
       if (category[i] == "line") {
         chartAll.add(
