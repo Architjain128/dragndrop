@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data.dart';
 import 'dart:core';
 import "./combinedGraphs.dart";
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GraphHomePage extends StatefulWidget {
   final PandoraBox model;
@@ -32,7 +33,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
         title: Text("Graphs"),
       ),
       body: Center(
-        child: CombinedChartPage(),
+        child: SfCartesianChart(),
       ),
     );
   }
