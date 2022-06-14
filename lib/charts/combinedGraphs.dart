@@ -130,45 +130,72 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      //Initialize the chart widget
-      SfCartesianChart(
-          primaryXAxis: CategoryAxis(),
-          // Chart title
-          title: ChartTitle(text: 'temp'),
-          // Enable legend
-          legend: Legend(isVisible: true),
-          // Enable tooltip
-          tooltipBehavior: TooltipBehavior(enable: true),
-          series: <ChartSeries<_ChartData, String>>[
-            LineSeries<_ChartData, String>(
-              dataSource: data,
-              xValueMapper: (_ChartData sales, _) => sales.lineName[0],
-              yValueMapper: (_ChartData sales, _) => sales.line[0],
-              name: 'Sales',
-              // Enable data label
-              dataLabelSettings: DataLabelSettings(isVisible: true),
-            )
-          ]),
-      // Expanded(
-      //   child: Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     //Initialize the spark charts widget
-      //     child: SfSparkLineChart.custom(
-      //       //Enable the trackball
-      //       trackball: SparkChartTrackball(activationMode: SparkChartActivationMode.tap),
-      //       //Enable marker
-      //       marker: SparkChartMarker(displayMode: SparkChartMarkerDisplayMode.all),
-      //       //Enable data label
-      //       labelDisplayMode: SparkChartLabelDisplayMode.all,
-      //       xValueMapper: (int index) => data[index].year,
-      //       yValueMapper: (int index) => data[index].sales,
-      //       dataCount: 5,
-      //     ),
-      //   ),
-      // )
-    ]);
+    return _buildDefaultLineChart();
   }
+
+  /// Get the cartesian chart with default line series
+  SfCartesianChart _buildDefaultLineChart() {
+    return SfCartesianChart(
+      plotAreaBorderWidth: 0,
+      title: ChartTitle(text: 'Inflation - Consumer price'),
+      legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+      primaryXAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, interval: 2, majorGridLines: const MajorGridLines(width: 0)),
+      primaryYAxis: NumericAxis(labelFormat: '{value}%', axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(color: Colors.transparent)),
+      series: _getDefaultLineSeries(),
+      tooltipBehavior: TooltipBehavior(enable: true),
+    );
+  }
+
+  /// The method returns line series to chart.
+  List<LineSeries<_ChartData, String>> _getDefaultLineSeries() {
+    return <LineSeries<_ChartData, String>>[
+      LineSeries<_ChartData, String>(animationDuration: 2500, dataSource: data, xValueMapper: (_ChartData sales, _) => sales.lineName[0], yValueMapper: (_ChartData sales, _) => sales.line[0], width: 2, name: 'Germany', markerSettings: const MarkerSettings(isVisible: true)),
+      LineSeries<_ChartData, String>(animationDuration: 2500, dataSource: chartData!, width: 2, name: 'England', xValueMapper: (_ChartData sales, _) => sales.lineName[0], yValueMapper: (_ChartData sales, _) => sales.line[0], markerSettings: const MarkerSettings(isVisible: true))
+    ];
+  }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Column(children: [
+  //     //Initialize the chart widget
+  //     SfCartesianChart(
+  //         primaryXAxis: CategoryAxis(),
+  //         // Chart title
+  //         title: ChartTitle(text: 'temp'),
+  //         // Enable legend
+  //         legend: Legend(isVisible: true),
+  //         // Enable tooltip
+  //         tooltipBehavior: TooltipBehavior(enable: true),
+  //         series: <ChartSeries<_ChartData, String>>[
+  //           LineSeries<_ChartData, String>(
+  //             dataSource: data,
+  //             xValueMapper: (_ChartData sales, _) => sales.lineName[0],
+  //             yValueMapper: (_ChartData sales, _) => sales.line[0],
+  //             name: 'a',
+  //             // Enable data label
+  //             dataLabelSettings: DataLabelSettings(isVisible: true),
+  //           )
+  //         ]),
+
+  // Expanded(
+  //   child: Padding(
+  //     padding: const EdgeInsets.all(8.0),
+  //     //Initialize the spark charts widget
+  //     child: SfSparkLineChart.custom(
+  //       //Enable the trackball
+  //       trackball: SparkChartTrackball(activationMode: SparkChartActivationMode.tap),
+  //       //Enable marker
+  //       marker: SparkChartMarker(displayMode: SparkChartMarkerDisplayMode.all),
+  //       //Enable data label
+  //       labelDisplayMode: SparkChartLabelDisplayMode.all,
+  //       xValueMapper: (int index) => data[index].year,
+  //       yValueMapper: (int index) => data[index].sales,
+  //       dataCount: 5,
+  //     ),
+  //   ),
+  // )
+  // ]);
+  // }
 }
 
 class _ChartData {
