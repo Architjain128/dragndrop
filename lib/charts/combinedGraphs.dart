@@ -149,8 +149,24 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
   /// The method returns line series to chart.
   List<LineSeries<_ChartData, String>> _getDefaultLineSeries() {
     return <LineSeries<_ChartData, String>>[
-      LineSeries<_ChartData, String>(animationDuration: 2500, dataSource: data, xValueMapper: (_ChartData sales, _) => sales.lineName[0], yValueMapper: (_ChartData sales, _) => sales.line[0], width: 2, name: 'Germany', markerSettings: const MarkerSettings(isVisible: true)),
-      LineSeries<_ChartData, String>(animationDuration: 2500, dataSource: chartData!, width: 2, name: 'England', xValueMapper: (_ChartData sales, _) => sales.lineName[0], yValueMapper: (_ChartData sales, _) => sales.line[0], markerSettings: const MarkerSettings(isVisible: true))
+      LineSeries<_ChartData, String>(
+        animationDuration: 2500,
+        dataSource: data,
+        xValueMapper: (_ChartData sales, _) => sales.lineName[0],
+        yValueMapper: (_ChartData sales, _) => sales.line[0],
+        width: 2,
+        name: 'Germany',
+        markerSettings: const MarkerSettings(isVisible: true),
+      ),
+      LineSeries<_ChartData, String>(
+        animationDuration: 2500,
+        dataSource: chartData!,
+        width: 2,
+        name: 'England',
+        xValueMapper: (_ChartData sales, _) => sales.lineName[1],
+        yValueMapper: (_ChartData sales, _) => sales.line[2],
+        markerSettings: const MarkerSettings(isVisible: true),
+      ),
     ];
   }
 
