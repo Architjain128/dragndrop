@@ -117,14 +117,14 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       plotAreaBorderWidth: 0,
       title: ChartTitle(text: 'Graphical View'),
       legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
-      primaryXAxis: CategoryAxis(
-        multiLevelLabelStyle: MultiLevelLabelStyle(borderWidth: 1, borderType: MultiLevelBorderType.squareBrace),
-        multiLevelLabels: [
-          CategoricalMultiLevelLabel(start: data[0].playerName, end: data[data.length - 1].playerName, text: 'Players')
-        ],
-      ),
+      primaryXAxis: CategoryAxis(title: AxisTitle(text: 'Players')),
       // primaryXAxis: CategoryAxis(edgeLabelPlacement: EdgeLabelPlacement.shift, majorGridLines: const MajorGridLines(width: 0)),
-      primaryYAxis: NumericAxis(labelFormat: '{value}', axisLine: const AxisLine(width: 0), majorTickLines: const MajorTickLines(color: Colors.transparent)),
+      primaryYAxis: NumericAxis(
+        title: AxisTitle(text: 'Players'),
+        labelFormat: '{value}',
+        axisLine: const AxisLine(width: 0),
+        majorTickLines: const MajorTickLines(color: Colors.transparent),
+      ),
       series: _getDefaultLineSeries(),
       trackballBehavior: TrackballBehavior(
         enable: true,
