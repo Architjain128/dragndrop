@@ -188,23 +188,21 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
             xValueMapper: (_ChartData sales, _) => sales.playerName,
             yValueMapper: (_ChartData sales, _) => sales.values[i],
             name: categoryName[i],
-            // width: 2,
-            // animationDuration: 2500,
           ),
         );
       }
       if (category[i] == "line") {
-        // chartAll.add(
-        //   LineSeries<_ChartData, String>(
-        //     animationDuration: 2500,
-        //     dataSource: data,
-        //     xValueMapper: (_ChartData sales, _) => sales.playerName,
-        //     yValueMapper: (_ChartData sales, _) => sales.values[i],
-        //     width: 2,
-        //     name: categoryName[i],
-        //     markerSettings: const MarkerSettings(isVisible: true),
-        //   ),
-        // );
+        chartAll.add(
+          LineSeries<_ChartData, String>(
+            animationDuration: 2500,
+            dataSource: data,
+            xValueMapper: (_ChartData sales, _) => sales.playerName,
+            yValueMapper: (_ChartData sales, _) => sales.values[i],
+            width: 2,
+            name: categoryName[i],
+            markerSettings: const MarkerSettings(isVisible: true),
+          ),
+        );
       }
     }
     return chartAll;
