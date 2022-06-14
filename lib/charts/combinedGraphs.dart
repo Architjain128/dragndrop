@@ -130,7 +130,8 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildDefaultLineChart();
+    // return _buildDefaultLineChart();
+    return Text("ji");
   }
 
   /// Get the cartesian chart with default line series
