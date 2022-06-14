@@ -34,6 +34,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
       ),
       body: Center(
         child: Expanded(
+          flex: 1,
           child: CombinedChartPage(),
         ),
       ),
