@@ -33,7 +33,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
         title: Text("Graphs"),
       ),
       body: Center(
-        child: SfCartesianChart(),
+        child: CombinedChartPage(),
       ),
     );
   }
