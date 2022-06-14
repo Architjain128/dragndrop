@@ -164,7 +164,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
         width: 2,
         name: 'England',
         xValueMapper: (_ChartData sales, _) => sales.lineName[1],
-        yValueMapper: (_ChartData sales, _) => sales.line[2],
+        yValueMapper: (_ChartData sales, _) => sales.line[1],
         markerSettings: const MarkerSettings(isVisible: true),
       ),
     ];
