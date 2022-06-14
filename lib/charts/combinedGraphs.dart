@@ -120,7 +120,7 @@ class _CombinedChartPageState extends State<CombinedChartPage> {
       primaryXAxis: CategoryAxis(
         title: AxisTitle(text: 'Players'),
         axisLine: const AxisLine(width: 1),
-        labelRotation: 10,
+        labelRotation: -90,
       ),
       primaryYAxis: NumericAxis(
         title: AxisTitle(text: 'Score'),
