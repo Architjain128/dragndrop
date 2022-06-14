@@ -3,7 +3,6 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class CombinedChartPage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
   CombinedChartPage({Key? key}) : super(key: key);
 
   @override

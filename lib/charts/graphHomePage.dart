@@ -30,7 +30,7 @@ class _GraphHomePageState extends State<GraphHomePage> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pushNamed(context, '/'),
         ),
-        title: Text("Graphs"),
+        title: Text("Combined Graphs"),
       ),
       body: Center(
         child: Column(
