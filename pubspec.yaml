@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   scoped_model: ^1.1.0
+  syncfusion_flutter_charts: ^20.1.59
 
 dev_dependencies:
   flutter_test:
